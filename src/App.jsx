@@ -7,6 +7,7 @@ import AdymizeServiceCards from './pages/AdymizeServiceCards';
 import HowItStartsPage from './pages/HowItStartsPage';
 import WhatMakesUsUnique from './pages/WhatMakesUsUnique';
 import HearFromThem from './pages/HearFromThem';
+import NeedHelpFAQ from './pages/NeedHelpFAQ';
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
   <HowItStartsPage />
   <WhatMakesUsUnique />
   <HearFromThem />
+  <NeedHelpFAQ />
         <Routes>
           <Route path="/services" element={<ServicesPage />} />
         </Routes>
