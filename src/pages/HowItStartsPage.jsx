@@ -3,11 +3,11 @@ import React from 'react';
 const HowItStartsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 py-16">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* White Container */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          <div className="px-12 py-16">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="p-8 sm:p-12">
             
             {/* Header Section */}
             <div className="text-center mb-16">
