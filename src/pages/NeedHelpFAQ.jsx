@@ -27,8 +27,7 @@ export default function NeedHelpFAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-100 flex flex-col">
-      {/* Main Content Area */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 flex flex-col">
       <div className="flex-1 flex items-center justify-center px-8 py-16">
         <div className="bg-white rounded-3xl shadow-lg p-12 max-w-4xl w-full">
           {/* Header Section */}
@@ -74,7 +73,7 @@ export default function NeedHelpFAQ() {
       </div>
       
       {/* Footer Section */}
-      <div className="bg-gradient-to-r from-purple-200 via-pink-200 to-orange-200 py-16">
+      <div className="bg-gradient-to-r from-blue-100/50 via-purple-100/50 to-blue-100/50 py-16">
         <div className="max-w-6xl mx-auto px-8">
           {/* Adymize Logo */}
           <div className="text-center mb-12">

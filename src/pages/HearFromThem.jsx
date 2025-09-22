@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HearFromThem() {
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 p-8 flex items-center justify-center">
       <div className="bg-white rounded-3xl shadow-lg p-12 max-w-5xl w-full">
         {/* Header Section */}
         <div className="text-center mb-12">

@@ -3,7 +3,7 @@ import { Minus, Check } from 'lucide-react';
 
 export default function WhatMakesUsUnique() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* White Container */}
         <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
