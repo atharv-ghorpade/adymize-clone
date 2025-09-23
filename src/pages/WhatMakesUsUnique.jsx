@@ -1,5 +1,6 @@
 import React from 'react';
 import { Minus, Check } from 'lucide-react';
+import Footer from '../components/Footer';
 
 export default function WhatMakesUsUnique() {
   return (
@@ -99,6 +100,7 @@ export default function WhatMakesUsUnique() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

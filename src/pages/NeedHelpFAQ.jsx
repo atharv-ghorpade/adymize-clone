@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
+import Footer from '../components/Footer';
 
 export default function NeedHelpFAQ() {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -65,6 +66,7 @@ export default function NeedHelpFAQ() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

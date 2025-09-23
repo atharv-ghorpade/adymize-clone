@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 const HowItStartsPage = () => {
   return (
@@ -162,6 +163,7 @@ const HowItStartsPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

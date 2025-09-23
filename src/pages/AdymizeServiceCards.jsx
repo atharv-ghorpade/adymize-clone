@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 const AdymizeServiceCards = () => {
   return (
@@ -564,6 +565,7 @@ const AdymizeServiceCards = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

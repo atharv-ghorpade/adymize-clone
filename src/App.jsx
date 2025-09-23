@@ -10,24 +10,34 @@ import HearFromThem from './pages/HearFromThem';
 import NeedHelpFAQ from './pages/NeedHelpFAQ';
 import Footer from './components/Footer';
 
+// Create a Home component that renders all sections
+function Home() {
+  return (
+    <>
+      <AdymizeHero />
+      <ServicesPage />
+      <AdymizeServiceCards />
+      <HowItStartsPage />
+      <WhatMakesUsUnique />
+      <HearFromThem />
+      <NeedHelpFAQ />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
-        
-  {/* Always render hero to avoid empty screen during routing issues */}
-  <AdymizeHero />
-  <ServicesPage />
-  <AdymizeServiceCards />
-  {/*There is client page here*/ }
-  <HowItStartsPage />
-  <WhatMakesUsUnique />
-  <HearFromThem />
-  <NeedHelpFAQ />
-  <Footer />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/clients" element={<AdymizeServiceCards />} />
+          <Route path="/why-adymize" element={<HowItStartsPage />} />
+          <Route path="/reviews" element={<WhatMakesUsUnique />} />
+          <Route path="/faqs" element={<NeedHelpFAQ />} />
         </Routes>
       </div>
     </Router>

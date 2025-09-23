@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart3, Palette, Users, MonitorSpeaker, Search, Zap } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const servicesLeft = [
   {
@@ -102,6 +103,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
