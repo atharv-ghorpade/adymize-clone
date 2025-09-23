@@ -8,6 +8,7 @@ import Header from './components/Header';
 import WhatMakesUsUnique from './pages/WhatMakesUsUnique';
 import HearFromThem from './pages/HearFromThem';
 import NeedHelpFAQ from './pages/NeedHelpFAQ';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
   <WhatMakesUsUnique />
   <HearFromThem />
   <NeedHelpFAQ />
+  <Footer />
         <Routes>
           <Route path="/services" element={<ServicesPage />} />
         </Routes>

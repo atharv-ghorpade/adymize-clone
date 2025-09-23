@@ -39,7 +39,7 @@ const servicesRight = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-12">
+    <div id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md p-10">
           {/* Title */}

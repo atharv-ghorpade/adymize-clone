@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function HearFromThem() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 p-8 flex items-center justify-center">
-      <div className="bg-white rounded-3xl shadow-lg p-12 max-w-5xl w-full">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
         {/* Header Section */}
         <div className="text-center mb-12">
           {/* Badge */}
@@ -13,72 +14,68 @@ export default function HearFromThem() {
           
           {/* Title with Avatar */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-12 h-12 rounded-full overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">👨‍💼</span>
-              </div>
-            </div>
-            <h2 className="text-4xl font-bold text-indigo-400">
+            <div className="text-5xl">👨‍💼</div>
+            <h2 className="text-4xl font-bold text-blue-500">
               Hear from them
             </h2>
           </div>
         </div>
         
-        {/* Testimonial Cards */}
+        {/* Media Cards Row */}
         <div className="grid grid-cols-2 gap-8 mb-16">
-          {/* Left Testimonial */}
-          <div className="relative">
-            <div className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-2xl p-1">
-              <div className="bg-white rounded-2xl p-6 h-full flex items-center gap-4">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <span className="text-white font-bold">👨</span>
+          {/* Left Card - Video Player */}
+          <div className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-2xl p-1">
+            <div className="bg-blue-50 rounded-2xl overflow-hidden relative">
+              {/* Video Content Area */}
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative">
+                <div className="absolute inset-4 bg-white/20 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-blue-600 font-semibold text-lg mb-2">The Builder Service</div>
+                    <div className="text-blue-500 text-sm">
+                      "It was much effortlessly<br />
+                      Done to transform<br />
+                      a major event in *location*"
+                    </div>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <div className="bg-blue-50 rounded-lg p-4 relative">
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      "It was much effortlessly Done to transform a major event in the location"
-                    </p>
-                    <div className="absolute -bottom-2 left-4 w-4 h-4 bg-blue-50 transform rotate-45"></div>
+              </div>
+              
+              {/* Video Controls */}
+              <div className="p-4 bg-white">
+                <div className="flex items-center gap-3">
+                  {/* Play Button */}
+                  <button className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                    <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </button>
+                  
+                  {/* Progress Bar */}
+                  <div className="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-1/3 h-full bg-blue-500"></div>
                   </div>
-                  <div className="mt-4 flex items-center gap-2">
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                      ))}
-                    </div>
-                    <span className="text-xs text-gray-500 ml-2">advmize</span>
-                  </div>
+                  
+                  {/* Time */}
+                  <span className="text-xs text-gray-500">0:23</span>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Right Testimonial */}
+          {/* Right Card - Testimonial Image */}
           <div className="relative">
-            <div className="bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl p-1">
-              <div className="bg-white rounded-2xl p-6 h-full flex items-center gap-4">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <span className="text-white font-bold">👨‍💼</span>
-                  </div>
+            <div className="bg-yellow-100 rounded-2xl overflow-hidden aspect-[4/3]">
+              <div className="w-full h-full bg-gradient-to-br from-yellow-200 to-orange-200 flex items-center justify-center relative">
+                {/* Person Image Placeholder */}
+                <div className="w-32 h-32 bg-yellow-400 rounded-full flex items-center justify-center text-4xl">
+                  👨‍💼
                 </div>
-                <div className="flex-1">
-                  <div className="bg-blue-50 rounded-lg p-4 relative">
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      "Had the best guidance with right touch ups with"
-                    </p>
-                    <div className="absolute -bottom-2 left-4 w-4 h-4 bg-blue-50 transform rotate-45"></div>
-                  </div>
-                  <div className="mt-4 flex items-center gap-2">
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                      ))}
-                    </div>
-                    <span className="text-xs text-gray-500 ml-2">advmize</span>
-                  </div>
+                
+                {/* Quote overlay */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/90 rounded-lg p-3">
+                  <p className="text-sm text-gray-700 font-medium">
+                    "Had the best guidance with right touch ups"
+                  </p>
                 </div>
               </div>
             </div>
@@ -89,59 +86,56 @@ export default function HearFromThem() {
         <div className="border-t border-gray-200 my-12"></div>
         
         {/* Company Logos Grid */}
-        <div className="bg-gray-50 rounded-2xl p-8">
+        <div className="bg-gray-50/50 rounded-2xl p-8">
           <div className="grid grid-cols-5 gap-6 items-center justify-items-center">
             {/* Row 1 */}
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-green-600 font-bold text-base">myntra</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">☕</span>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xs">M</span>
               </div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-red-500 font-semibold text-sm text-center">
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xs">⚡</span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="text-green-600 font-bold text-xs">myntra</div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xs">☕</span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="text-red-500 font-semibold text-xs text-center">
                 <span>Techo</span>
-                <div className="text-blue-600 text-xs">Geniuses</div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-gray-800 font-bold text-xs text-center">
-                DIGITAL<br/>MARKETER
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="bg-blue-500 text-white px-3 py-1 rounded text-sm font-bold">
-                Analytic
+                <div className="text-blue-600 text-xs">+ Geniuses</div>
               </div>
             </div>
             
             {/* Row 2 */}
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-orange-500 font-semibold text-sm flex items-center gap-1">
-                <span className="text-lg">🌈</span>
-                <span>adv</span>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
+                <span className="text-gray-600 font-bold text-xs">LC</span>
               </div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-green-600 font-bold text-sm text-center">
-                GROW
-                <div className="text-xs font-normal">PARTNER</div>
-              </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="text-gray-600 font-bold text-xs text-center">SASTRA</div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="w-8 h-8 bg-black rounded-full"></div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="w-8 h-8 bg-black rounded-lg"></div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="text-gray-600 font-semibold text-sm">SASTRA</div>
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="text-gray-600 font-semibold text-xs">GROWTH</div>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm w-28 h-20 flex items-center justify-center">
-              <div className="bg-black text-white px-3 py-1 text-sm font-bold">
-                PIXELS
+            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+              <div className="bg-blue-600 text-white px-2 py-1 text-xs font-bold rounded">
+                Genera+
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

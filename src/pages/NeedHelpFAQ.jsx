@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 export default function NeedHelpFAQ() {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -27,83 +27,41 @@ export default function NeedHelpFAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 flex flex-col">
-      <div className="flex-1 flex items-center justify-center px-8 py-16">
-        <div className="bg-white rounded-3xl shadow-lg p-12 max-w-4xl w-full">
+    <div id="faqs" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
           {/* Header Section */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-8">
-              <h1 className="text-5xl font-bold text-indigo-400">Need Help?</h1>
-              <div className="w-16 h-16 flex items-center justify-center">
-                <span className="text-5xl">👨‍💼</span>
-              </div>
+              <h1 className="text-4xl font-bold text-blue-500">Need Help?</h1>
+              <div className="text-4xl">👨‍💼</div>
             </div>
           </div>
           
           {/* FAQ Section */}
-          <div className="space-y-4">
+          <div className="space-y-1">
             {faqs.map((faq) => (
-              <div key={faq.id} className="border border-gray-200 rounded-lg overflow-hidden">
+              <div key={faq.id} className="border-b border-gray-100 last:border-b-0">
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                  className="w-full flex items-center justify-between py-6 text-left hover:bg-gray-50/50 transition-colors duration-200"
                 >
-                  <span className="text-lg font-medium text-gray-800">
+                  <span className="text-base font-medium text-gray-700 pr-4">
                     {faq.question}
                   </span>
-                  <div className="flex-shrink-0 ml-4">
-                    {openFAQ === faq.id ? (
-                      <Minus className="w-5 h-5 text-gray-600" />
-                    ) : (
-                      <Plus className="w-5 h-5 text-gray-600" />
-                    )}
+                  <div className="flex-shrink-0">
+                    <Plus className="w-4 h-4 text-gray-400" />
                   </div>
                 </button>
                 {openFAQ === faq.id && (
-                  <div className="px-6 pb-6 border-t border-gray-100">
-                    <p className="text-gray-600 leading-relaxed pt-4">
+                  <div className="pb-6 -mt-2">
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       {faq.answer}
                     </p>
                   </div>
                 )}
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-      
-      {/* Footer Section */}
-      <div className="bg-gradient-to-r from-blue-100/50 via-purple-100/50 to-blue-100/50 py-16">
-        <div className="max-w-6xl mx-auto px-8">
-          {/* Adymize Logo */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center transform rotate-12">
-                <span className="text-white font-bold text-lg">✓</span>
-              </div>
-              <span className="text-3xl font-bold text-gray-800">Adymize</span>
-            </div>
-          </div>
-          
-          {/* Footer Content */}
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600">
-              © 2025 Adymize Private Limited | 
-              <span className="text-blue-500 hover:underline cursor-pointer ml-1">Privacy Policy</span>
-            </div>
-            
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-                <span className="text-white font-bold text-sm">in</span>
-              </div>
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer">
-                <span className="text-white font-bold text-sm">📷</span>
-              </div>
-              <div className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors cursor-pointer">
-                <span className="text-white font-bold text-sm">🐦</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
