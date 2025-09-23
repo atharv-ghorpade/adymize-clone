@@ -9,6 +9,19 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.substring(1); // Remove the #
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full z-30 flex justify-center pointer-events-none">
       <div className="mt-6 w-[95%] max-w-5xl pointer-events-auto rounded-2xl bg-white/70 backdrop-blur-md shadow-lg flex items-center px-6 py-3">
@@ -26,7 +39,8 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 cursor-pointer"
               >
                 {link.name}
               </a>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdymizeServiceCards = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40">
+    <div id="clients" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40">
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-16">
         
