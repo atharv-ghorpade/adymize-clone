@@ -1,12 +1,102 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HearFromThem() {
+  const containerRef = useRef(null);
+  const headerRef = useRef(null);
+  const mediaCardsRef = useRef(null);
+  const logosRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.fromTo(headerRef.current.children,
+        {
+          y: -40,
+          opacity: 0,
+          scale: 0.8
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Media cards animation
+      const mediaCards = mediaCardsRef.current.children;
+      gsap.fromTo(mediaCards,
+        {
+          y: 100,
+          opacity: 0,
+          rotationX: 15,
+          scale: 0.9
+        },
+        {
+          y: 0,
+          opacity: 1,
+          rotationX: 0,
+          scale: 1,
+          duration: 1,
+          stagger: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: mediaCardsRef.current,
+            start: "top 70%",
+            end: "bottom 30%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Company logos animation
+      const logoElements = logosRef.current.querySelectorAll('.logo-card');
+      gsap.fromTo(logoElements,
+        {
+          y: 30,
+          opacity: 0,
+          scale: 0.8,
+          rotation: 5
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: logosRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div ref={headerRef} className="text-center mb-12">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide mb-6">
             <span>REVIEWS • REVIEWS • REVIEWS</span>
@@ -22,7 +112,7 @@ export default function HearFromThem() {
         </div>
         
         {/* Media Cards Row */}
-        <div className="grid grid-cols-2 gap-8 mb-16">
+        <div ref={mediaCardsRef} className="grid grid-cols-2 gap-8 mb-16">
           {/* Left Card - Video Player */}
           <div className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-2xl p-1">
             <div className="bg-blue-50 rounded-2xl overflow-hidden relative">
@@ -86,28 +176,28 @@ export default function HearFromThem() {
         <div className="border-t border-gray-200 my-12"></div>
         
         {/* Company Logos Grid */}
-        <div className="bg-gray-50/50 rounded-2xl p-8">
+        <div ref={logosRef} className="bg-gray-50/50 rounded-2xl p-8">
           <div className="grid grid-cols-5 gap-6 items-center justify-items-center">
             {/* Row 1 */}
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xs">M</span>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">⚡</span>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="text-green-600 font-bold text-xs">myntra</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">☕</span>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="text-red-500 font-semibold text-xs text-center">
                 <span>Techo</span>
                 <div className="text-blue-600 text-xs">+ Geniuses</div>
@@ -115,21 +205,21 @@ export default function HearFromThem() {
             </div>
             
             {/* Row 2 */}
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="w-8 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
                 <span className="text-gray-600 font-bold text-xs">LC</span>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="text-gray-600 font-bold text-xs text-center">SASTRA</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="w-8 h-8 bg-black rounded-lg"></div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="text-gray-600 font-semibold text-xs">GROWTH</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
               <div className="bg-blue-600 text-white px-2 py-1 text-xs font-bold rounded">
                 Genera+
               </div>

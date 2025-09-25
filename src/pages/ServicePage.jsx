@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BarChart3, Palette, Users, MonitorSpeaker, Search, Zap } from 'lucide-react';
-import Footer from '../components/Footer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const servicesLeft = [
   {
@@ -39,12 +42,114 @@ const servicesRight = [
 ];
 
 export default function ServicesPage() {
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const leftServicesRef = useRef(null);
+  const rightServicesRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title animation
+      gsap.fromTo(titleRef.current, 
+        {
+          y: 50,
+          opacity: 0,
+          scale: 0.8
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Left services animation
+      gsap.fromTo(leftServicesRef.current.children,
+        {
+          x: -100,
+          opacity: 0,
+          rotation: -5
+        },
+        {
+          x: 0,
+          opacity: 1,
+          rotation: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: leftServicesRef.current,
+            start: "top 70%",
+            end: "bottom 30%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Right services animation
+      gsap.fromTo(rightServicesRef.current.children,
+        {
+          x: 100,
+          opacity: 0,
+          rotation: 5
+        },
+        {
+          x: 0,
+          opacity: 1,
+          rotation: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: rightServicesRef.current,
+            start: "top 70%",
+            end: "bottom 30%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // CTA animation
+      gsap.fromTo(ctaRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          scale: 0.9
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-12">
+    <div ref={containerRef} id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md p-10">
           {/* Title */}
-          <div className="text-center mb-8">
+          <div ref={titleRef} className="text-center mb-8">
             <div className="inline-block relative">
               {/* NEW Badge */}
               <div className="absolute -top-8 left-1/2 -translate-x-1/2">
@@ -67,7 +172,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-8">
+              <div ref={leftServicesRef} className="space-y-8">
                 {servicesLeft.map((s, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -81,7 +186,7 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              <div className="space-y-8">
+              <div ref={rightServicesRef} className="space-y-8">
                 {servicesRight.map((s, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -98,12 +203,11 @@ export default function ServicesPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-10 flex justify-center">
+          <div ref={ctaRef} className="mt-10 flex justify-center">
             <div className="bg-white rounded-full px-6 py-3 shadow text-gray-800">Want to discuss <a href="#" className="underline font-semibold ml-2">Let's Schedule a Call</a></div>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

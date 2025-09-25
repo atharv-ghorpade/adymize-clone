@@ -1,18 +1,110 @@
-import React from 'react';
-import Footer from '../components/Footer';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AdymizeServiceCards = () => {
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          const isEven = index % 2 === 0;
+          
+          gsap.fromTo(card,
+            {
+              x: isEven ? -100 : 100,
+              opacity: 0,
+              rotationY: isEven ? -15 : 15,
+              scale: 0.9
+            },
+            {
+              x: 0,
+              opacity: 1,
+              rotationY: 0,
+              scale: 1,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+
+          // Animate mockup elements inside each card
+          const mockup = card.querySelector('.mockup-container');
+          if (mockup) {
+            gsap.fromTo(mockup,
+              {
+                y: 50,
+                opacity: 0,
+                scale: 0.8
+              },
+              {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                delay: 0.3,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 70%",
+                  end: "bottom 30%",
+                  toggleActions: "play none none reverse"
+                }
+              }
+            );
+          }
+
+          // Animate content elements
+          const content = card.querySelector('.content-container');
+          if (content) {
+            gsap.fromTo(content.children,
+              {
+                y: 30,
+                opacity: 0
+              },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                delay: 0.4,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 75%",
+                  end: "bottom 25%",
+                  toggleActions: "play none none reverse"
+                }
+              }
+            );
+          }
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div id="clients" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40">
+    <div ref={containerRef} id="clients" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40">
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-16">
         
         {/* Strategic Marketing */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[0] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Mockup */}
-            <div className="relative">
+            <div className="relative mockup-container">
               <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-purple-200/50 to-pink-200/50 rounded-full blur-xl"></div>
@@ -71,7 +163,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   ADS • ADS • ADS
@@ -99,11 +191,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Eye-catchy Designs */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[1] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
-            <div className="space-y-6 lg:order-1">
+            <div className="space-y-6 lg:order-1 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
                   DESIGN • DESIGN • DESIGN
@@ -132,7 +224,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Smartphone Mockup (reversed layout) */}
-            <div className="relative lg:order-2">
+            <div className="relative lg:order-2 mockup-container">
               <div className="bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-pink-200/50 to-purple-200/50 rounded-full blur-xl"></div>
@@ -188,11 +280,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Social Media */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[2] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Social Media Dashboard Mockup */}
-            <div className="relative">
+            <div className="relative mockup-container">
               <div className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-blue-200/50 to-purple-200/50 rounded-full blur-xl"></div>
@@ -253,7 +345,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   SOCIAL • SOCIAL • SOCIAL
@@ -281,11 +373,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Automation */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[3] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
-            <div className="space-y-6 lg:order-1">
+            <div className="space-y-6 lg:order-1 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-cyan-100 to-blue-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                   AUTOMATE • AUTOMATE • AUTOMATE
@@ -314,7 +406,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Automation Flow Mockup (reversed layout) */}
-            <div className="relative lg:order-2">
+            <div className="relative lg:order-2 mockup-container">
               <div className="bg-gradient-to-br from-cyan-100 via-blue-100 to-purple-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-cyan-200/50 to-blue-200/50 rounded-full blur-xl"></div>
@@ -377,11 +469,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Web Development */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[4] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Website Mockup */}
-            <div className="relative">
+            <div className="relative mockup-container">
               <div className="bg-gradient-to-br from-emerald-100 via-blue-100 to-purple-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-emerald-200/50 to-blue-200/50 rounded-full blur-xl"></div>
@@ -442,7 +534,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-emerald-100 to-blue-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                   WEB • WEB • WEB
@@ -470,11 +562,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Robust SEO */}
-        <div className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+        <div ref={el => cardsRef.current[5] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
-            <div className="space-y-6 lg:order-1">
+            <div className="space-y-6 lg:order-1 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-emerald-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                   SEO • SEO • SEO
@@ -503,7 +595,7 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - SEO Dashboard Mockup (reversed layout) */}
-            <div className="relative lg:order-2">
+            <div className="relative lg:order-2 mockup-container">
               <div className="bg-gradient-to-br from-green-100 via-emerald-100 to-teal-100 rounded-3xl p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-green-200/50 to-emerald-200/50 rounded-full blur-xl"></div>
@@ -565,7 +657,6 @@ const AdymizeServiceCards = () => {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
