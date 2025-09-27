@@ -175,10 +175,10 @@ export default function WhatMakesUsUnique() {
   }, []);
 
   return (
-    <div ref={containerRef} id="reviews" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+    <div ref={containerRef} id="reviews" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* White Container */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12">
           {/* Header Section */}
           <div ref={headerRef}>
             {/* Special Badge */}
@@ -204,13 +204,13 @@ export default function WhatMakesUsUnique() {
           </div>
           
           {/* Comparison Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-6 sm:mb-8 items-start">
             {/* Others Column */}
             <div ref={othersColumnRef} className="text-left">
-              <div className="text-sm font-bold text-gray-400 uppercase tracking-wide mb-8 pb-3 border-b-2 border-gray-200">
+              <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-wide mb-6 sm:mb-8 pb-3 border-b-2 border-gray-200">
                 OTHERS
               </div>
-              <ul className="space-y-6">
+              <ul className="space-y-4 sm:space-y-6">
                 <li className="flex items-center text-base font-medium">
                   <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
                   <span className="text-gray-400">Longer turnaround time</span>

@@ -11,12 +11,12 @@ const AdymizeHero = () => {
       </div>
       {/* Hero Section */}
       <main className="relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20">
           <div className="text-center relative">
             {/* Main Headline */}
-            <div className="mb-8 sm:mb-12">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 leading-tight">
-                <span className="block text-slate-800 mb-2">Turn Your Ads Into</span>
+            <div className="mb-6 sm:mb-8 lg:mb-12">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight px-2">
+                <span className="block text-slate-800 mb-1 sm:mb-2">Turn Your Ads Into</span>
                 <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent relative">
                   Profit Machines
                   {/* Underline decoration */}
@@ -46,7 +46,7 @@ const AdymizeHero = () => {
                   </div>
                 </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed px-2">
                 Stop wasting money on ads that don't convert. Our proven strategies have generated 
                 <span className="font-bold text-green-600"> ₹60+ Crores in revenue </span> 
                 for 500+ brands worldwide.
@@ -54,19 +54,19 @@ const AdymizeHero = () => {
             </div>
 
             {/* Statistics */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-lg border border-white/20 max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 lg:mb-12 shadow-lg border border-white/20 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-slate-800 mb-2">5+</div>
-                  <div className="text-sm sm:text-base text-slate-600 font-medium">Years of Excellence</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">5+</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Years of Excellence</div>
                 </div>
-                <div className="text-center border-t sm:border-t-0 sm:border-l sm:border-r border-slate-200 pt-6 sm:pt-0">
-                  <div className="text-3xl sm:text-4xl font-bold text-slate-800 mb-2">500+</div>
-                  <div className="text-sm sm:text-base text-slate-600 font-medium">Brands Transformed</div>
+                <div className="text-center border-t sm:border-t-0 sm:border-l sm:border-r border-slate-200 pt-4 sm:pt-0">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">500+</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Brands Transformed</div>
                 </div>
-                <div className="text-center border-t sm:border-t-0 border-slate-200 pt-6 sm:pt-0">
-                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">₹60+ Cr</div>
-                  <div className="text-sm sm:text-base text-slate-600 font-medium">Revenue Generated</div>
+                <div className="text-center border-t sm:border-t-0 border-slate-200 pt-4 sm:pt-0">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-2">₹60+ Cr</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Revenue Generated</div>
                 </div>
               </div>
             </div>
@@ -95,17 +95,17 @@ const AdymizeHero = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="space-y-4">
-              <button className="group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-xl text-lg sm:text-xl font-bold hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 relative overflow-hidden">
+            <div className="space-y-3 sm:space-y-4 px-4">
+              <button className="group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl text-base sm:text-lg lg:text-xl font-bold hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 relative overflow-hidden w-full sm:w-auto">
                 <span className="relative z-10 flex items-center justify-center space-x-2">
                   <span>Book Your Free Strategy Call</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-blue-700 to-cyan-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <p className="text-sm text-slate-500 max-w-md mx-auto">
+              <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
                 🔒 No commitment required • 💡 Get actionable insights • ⚡ 30-minute session
               </p>
             </div>
@@ -114,13 +114,13 @@ const AdymizeHero = () => {
       </main>
 
       {/* Partners Section */}
-      <section className="py-16 sm:py-20 bg-white/60 backdrop-blur-sm border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-slate-700 text-lg sm:text-xl mb-2 font-medium">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white/60 backdrop-blur-sm border-t border-white/20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <p className="text-slate-700 text-base sm:text-lg lg:text-xl mb-2 font-medium px-2">
               Trusted & Certified By Industry Leaders
             </p>
-            <p className="text-slate-500 text-sm">
+            <p className="text-slate-500 text-xs sm:text-sm px-2">
               Our expertise is validated by the world's top platforms
             </p>
           </div>

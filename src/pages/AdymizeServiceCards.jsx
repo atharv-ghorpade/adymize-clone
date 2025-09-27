@@ -95,17 +95,17 @@ const AdymizeServiceCards = () => {
   }, []);
 
   return (
-    <div ref={containerRef} id="clients" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40">
+    <div ref={containerRef} id="clients" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 overflow-x-hidden">
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 py-12 space-y-16">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16">
         
         {/* Strategic Marketing */}
-        <div ref={el => cardsRef.current[0] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[0] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Mockup */}
-            <div className="relative mockup-container">
-              <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 rounded-3xl p-8 relative overflow-hidden">
+            <div className="relative mockup-container order-2 lg:order-1">
+              <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 rounded-3xl p-6 sm:p-8 relative overflow-hidden">
                 {/* Floating decorative elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-purple-200/50 to-pink-200/50 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-20 h-20 bg-gradient-to-br from-blue-200/50 to-cyan-200/50 rounded-full blur-xl"></div>
@@ -163,14 +163,14 @@ const AdymizeServiceCards = () => {
             </div>
             
             {/* Right side - Content */}
-            <div className="space-y-6 content-container">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-2 rounded-full">
-                <span className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <div className="space-y-4 sm:space-y-6 content-container order-1 lg:order-2">
+              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-pink-100 px-4 sm:px-6 py-2 rounded-full">
+                <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   ADS • ADS • ADS
                 </span>
               </div>
               
-              <h2 className="text-2xl font-semibold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
+              <h2 className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
                 Strategic Marketing
               </h2>
               
@@ -178,11 +178,11 @@ const AdymizeServiceCards = () => {
                 Ready to give your brand the spotlight it deserves? Dive into our Paid Ads extravaganza and let your message shine in the digital universe!
               </p>
               
-              <div className="flex flex-wrap gap-3">
-                <span className="bg-white/80 backdrop-blur-sm border border-blue-200 px-5 py-2 rounded-full text-blue-700 font-medium hover:bg-blue-50 transition-colors duration-200">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                <span className="bg-white/80 backdrop-blur-sm border border-blue-200 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-blue-700 font-medium hover:bg-blue-50 transition-colors duration-200 text-sm">
                   Facebook Ads
                 </span>
-                <span className="bg-white/80 backdrop-blur-sm border border-green-200 px-5 py-2 rounded-full text-green-700 font-medium hover:bg-green-50 transition-colors duration-200">
+                <span className="bg-white/80 backdrop-blur-sm border border-green-200 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-green-700 font-medium hover:bg-green-50 transition-colors duration-200 text-sm">
                   Google Ads
                 </span>
               </div>
@@ -191,11 +191,11 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Eye-catchy Designs */}
-        <div ref={el => cardsRef.current[1] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[1] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
-            <div className="space-y-6 lg:order-1 content-container">
+            <div className="space-y-4 sm:space-y-6 lg:order-1 content-container">
               <div className="inline-flex items-center bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-2 rounded-full">
                 <span className="text-sm font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
                   DESIGN • DESIGN • DESIGN
@@ -280,8 +280,8 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Social Media */}
-        <div ref={el => cardsRef.current[2] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[2] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Social Media Dashboard Mockup */}
             <div className="relative mockup-container">
@@ -373,8 +373,8 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Automation */}
-        <div ref={el => cardsRef.current[3] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[3] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
             <div className="space-y-6 lg:order-1 content-container">
@@ -469,8 +469,8 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Web Development */}
-        <div ref={el => cardsRef.current[4] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[4] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Website Mockup */}
             <div className="relative mockup-container">
@@ -562,8 +562,8 @@ const AdymizeServiceCards = () => {
         </div>
 
         {/* Robust SEO */}
-        <div ref={el => cardsRef.current[5] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div ref={el => cardsRef.current[5] = el} className="group bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             
             {/* Left side - Content (reversed layout) */}
             <div className="space-y-6 lg:order-1 content-container">

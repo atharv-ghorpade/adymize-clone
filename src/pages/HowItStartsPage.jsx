@@ -166,38 +166,38 @@ const HowItStartsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
-          <div className="p-6 sm:p-8 lg:p-12">
+          <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
             
             {/* Header Section */}
-            <div ref={headerRef} className="text-center mb-12">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full mb-8">
-                <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
+            <div ref={headerRef} className="text-center mb-8 sm:mb-10 lg:mb-12">
+              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
+                <span className="text-xs sm:text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
                   ONBOARDING  ONBOARDING  ONBOARDING
                 </span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 leading-tight px-2">
                 How it starts?
               </h1>
             </div>
 
             {/* Process Steps */}
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
               
               {/* Left Side - Steps */}
-              <div ref={stepsContainerRef} className="space-y-10">
+              <div ref={stepsContainerRef} className="space-y-6 sm:space-y-8 lg:space-y-10">
                 
                 {/* Step 1 */}
                 <div ref={step1Ref} className="group">
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                      <span className="text-white font-bold text-xl">1</span>
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <span className="text-white font-bold text-lg sm:text-xl">1</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-4">Plan Your Growth</h3>
-                      <p className="text-slate-600 text-lg leading-relaxed">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 mb-2 sm:mb-4">Plan Your Growth</h3>
+                      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                         Dream big, strategize with us, and turn plans into profits.
                       </p>
                     </div>
@@ -236,8 +236,8 @@ const HowItStartsPage = () => {
               </div>
 
               {/* Right Side - Dashboard Mockup */}
-              <div className="flex justify-center lg:justify-end">
-                <div ref={dashboardRef} className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-3xl shadow-2xl p-6 max-w-sm w-full border border-white/20">
+              <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+                <div ref={dashboardRef} className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-3xl shadow-2xl p-4 sm:p-6 max-w-xs sm:max-w-sm w-full border border-white/20">
                   
                   {/* Daily Payments Card */}
                   <div ref={dailyPaymentsRef} className="mb-8">

@@ -92,9 +92,9 @@ export default function HearFromThem() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12">
         {/* Header Section */}
         <div ref={headerRef} className="text-center mb-12">
           {/* Badge */}
@@ -112,7 +112,7 @@ export default function HearFromThem() {
         </div>
         
         {/* Media Cards Row */}
-        <div ref={mediaCardsRef} className="grid grid-cols-2 gap-8 mb-16">
+        <div ref={mediaCardsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* Left Card - Video Player */}
           <div className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-2xl p-1">
             <div className="bg-blue-50 rounded-2xl overflow-hidden relative">

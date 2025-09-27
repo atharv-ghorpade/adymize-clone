@@ -90,9 +90,9 @@ export default function NeedHelpFAQ() {
   };
 
   return (
-    <div ref={containerRef} id="faqs" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-16">
+    <div ref={containerRef} id="faqs" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12">
           {/* Header Section */}
           <div ref={headerRef} className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-8">

@@ -29,7 +29,7 @@ function Home() {
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App overflow-x-hidden">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
