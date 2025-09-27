@@ -166,7 +166,7 @@ const HowItStartsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
+    <div id="why-adymize" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
           <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
