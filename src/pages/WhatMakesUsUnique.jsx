@@ -201,14 +201,14 @@ export default function WhatMakesUsUnique() {
             {/* Main Title */}
             <div className="text-center mb-4">
               <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent leading-tight">
-                What makes us unique?
+                Why Choose Us?
               </h1>
             </div>
             
             {/* Subtitle */}
             <div className="text-center mb-12">
               <p className="text-lg text-gray-500 font-medium">
-                Advmize V/S Others
+                What Makes Adymize Different
               </p>
             </div>
           </div>
@@ -218,51 +218,59 @@ export default function WhatMakesUsUnique() {
             {/* Others Column */}
             <div ref={othersColumnRef} className="text-left">
               <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-wide mb-6 sm:mb-8 pb-3 border-b-2 border-gray-200">
-                OTHERS
+                TYPICAL AGENCIES
               </div>
               <ul className="space-y-4 sm:space-y-6">
                 <li className="flex items-center text-base font-medium">
                   <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
-                  <span className="text-gray-400">Longer turnaround time</span>
+                  <span className="text-gray-400">Generic, one-size-fits-all solutions</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
-                  <span className="text-gray-400">Mediocre methods</span>
+                  <span className="text-gray-400">Limited service offerings</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
-                  <span className="text-gray-400">Lack of timely reporting</span>
+                  <span className="text-gray-400">Unclear reporting & metrics</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
-                  <span className="text-gray-400">No prompt answers</span>
+                  <span className="text-gray-400">Short-term project focus</span>
+                </li>
+                <li className="flex items-center text-base font-medium">
+                  <Minus className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
+                  <span className="text-gray-400">Limited track record</span>
                 </li>
               </ul>
             </div>
             
-            {/* Advmize Column */}
+            {/* Adymize Column */}
             <div ref={advmizeColumnRef} className="text-left">
               <div className="mb-8">
                 <span className="advmize-badge bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                  ADVMIZE
+                  ADYMIZE
                 </span>
               </div>
               <ul className="space-y-6">
                 <li className="flex items-center text-base font-medium">
                   <Check className="w-5 h-5 text-purple-600 mr-4 flex-shrink-0" />
-                  <span className="text-gray-700">Faster and quick responses</span>
+                  <span className="text-gray-700">Personalized strategies tailored to your business</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Check className="w-5 h-5 text-purple-600 mr-4 flex-shrink-0" />
-                  <span className="text-gray-700">Ethical Approach</span>
+                  <span className="text-gray-700">Comprehensive services under one roof</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Check className="w-5 h-5 text-purple-600 mr-4 flex-shrink-0" />
-                  <span className="text-gray-700">Accurate Reporting</span>
+                  <span className="text-gray-700">Transparent metrics & detailed reporting</span>
                 </li>
                 <li className="flex items-center text-base font-medium">
                   <Check className="w-5 h-5 text-purple-600 mr-4 flex-shrink-0" />
-                  <span className="text-gray-700">Precise Resolutions</span>
+                  <span className="text-gray-700">Long-term support & partnership</span>
+                </li>
+                <li className="flex items-center text-base font-medium">
+                  <Check className="w-5 h-5 text-purple-600 mr-4 flex-shrink-0" />
+                  <span className="text-gray-700">Proven results & client testimonials</span>
                 </li>
               </ul>
             </div>
