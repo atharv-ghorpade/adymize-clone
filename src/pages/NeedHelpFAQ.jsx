@@ -31,19 +31,21 @@ export default function NeedHelpFAQ() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
+      // Enhanced header animation with more dramatic entrance
       gsap.fromTo(headerRef.current.children,
         {
-          y: -30,
+          y: -60,
           opacity: 0,
-          scale: 0.9
+          scale: 0.7,
+          rotationX: 20
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
+          rotationX: 0,
+          duration: 1.2,
+          stagger: 0.3,
           ease: "power3.out",
           scrollTrigger: {
             trigger: headerRef.current,
@@ -54,21 +56,24 @@ export default function NeedHelpFAQ() {
         }
       );
 
-      // FAQ items animation
+      // Enhanced FAQ items animation with alternating directions
       faqItemsRef.current.forEach((item, index) => {
         if (item) {
+          const isEven = index % 2 === 0;
           gsap.fromTo(item,
             {
-              x: index % 2 === 0 ? -50 : 50,
+              x: isEven ? -100 : 100,
               opacity: 0,
-              rotationY: index % 2 === 0 ? -10 : 10
+              rotationY: isEven ? -15 : 15,
+              scale: 0.9
             },
             {
               x: 0,
               opacity: 1,
               rotationY: 0,
-              duration: 0.8,
-              delay: index * 0.1,
+              scale: 1,
+              duration: 1,
+              delay: index * 0.15,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: item,

@@ -12,19 +12,21 @@ export default function HearFromThem() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
+      // Enhanced header animation with more dynamic movement
       gsap.fromTo(headerRef.current.children,
         {
-          y: -40,
+          y: -60,
           opacity: 0,
-          scale: 0.8
+          scale: 0.7,
+          rotationX: 20
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
+          rotationX: 0,
+          duration: 1.2,
+          stagger: 0.3,
           ease: "power3.out",
           scrollTrigger: {
             trigger: headerRef.current,
@@ -35,22 +37,22 @@ export default function HearFromThem() {
         }
       );
 
-      // Media cards animation
+      // Enhanced media cards animation with 3D effects
       const mediaCards = mediaCardsRef.current.children;
       gsap.fromTo(mediaCards,
         {
-          y: 100,
+          y: 150,
           opacity: 0,
-          rotationX: 15,
-          scale: 0.9
+          rotationX: 25,
+          scale: 0.8
         },
         {
           y: 0,
           opacity: 1,
           rotationX: 0,
           scale: 1,
-          duration: 1,
-          stagger: 0.3,
+          duration: 1.2,
+          stagger: 0.4,
           ease: "power3.out",
           scrollTrigger: {
             trigger: mediaCardsRef.current,
@@ -61,22 +63,22 @@ export default function HearFromThem() {
         }
       );
 
-      // Company logos animation
+      // Enhanced company logos animation with wave effect
       const logoElements = logosRef.current.querySelectorAll('.logo-card');
       gsap.fromTo(logoElements,
         {
-          y: 30,
+          y: 50,
           opacity: 0,
-          scale: 0.8,
-          rotation: 5
+          scale: 0.6,
+          rotation: 10
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.6,
-          stagger: 0.1,
+          duration: 0.8,
+          stagger: 0.08,
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: logosRef.current,

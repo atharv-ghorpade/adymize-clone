@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BarChart3, Palette, Users, MonitorSpeaker, Search, Zap } from 'lucide-react';
+import { Monitor, Smartphone, TrendingUp, Palette, Layers } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,39 +7,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 const servicesLeft = [
   {
-    icon: <BarChart3 />,
-    title: 'Strategic Marketing',
-    desc: "Catapult your brand into the spotlight with our genius strategies - it's like magic, but for marketing.",
+    icon: <Monitor />,
+    title: 'Web Design & Development',
+    desc: "Responsive, user-friendly, visually compelling websites that engage your audience and drive results.",
   },
   {
-    icon: <Users />,
-    title: 'Social Media Management',
-    desc: "Hands-free social success! While you focus on your cat videos, we'll make sure your brand shines across all social platforms.",
+    icon: <Smartphone />,
+    title: 'Mobile App Development',
+    desc: "Custom mobile solutions for Android, iOS, and cross-platform development tailored to your business needs.",
   },
   {
-    icon: <Search />,
-    title: 'Search Engine Optimization (SEO)',
-    desc: "Boost your online swagger! We'll spruce up your website so Google has no choice but to be your biggest fan.",
+    icon: <TrendingUp />,
+    title: 'Digital Marketing',
+    desc: "SEO, SEM, social media, and paid campaigns designed to maximize your ROI and online presence.",
   },
 ];
 
 const servicesRight = [
   {
     icon: <Palette />,
-    title: 'Creative Design',
-    desc: 'Picture-perfect branding and graphics - we make your competitors jealous, and your audience adore you.',
+    title: 'Branding & Logo Design',
+    desc: 'Professional logos, comprehensive brand guides, and striking graphics that create a strong, memorable identity.',
   },
   {
-    icon: <MonitorSpeaker />,
-    title: 'Technical Solutions',
-    desc: 'From tech wizardry to seamless online experiences, we turn digital hiccups into high-fives for your users.',
-  },
-  {
-    icon: <Zap />,
-    title: 'Automation Services',
-    desc: 'Automagically enhance efficiency! Our automation tricks make your processes smoother than a freshly buttered slide.',
+    icon: <Layers />,
+    title: 'UI/UX & Graphic Design',
+    desc: 'Clean layouts, intuitive interfaces, and compelling visual designs that enhance user experience and appeal.',
   },
 ];
+
+// Additional service for better layout balance
+const additionalService = {
+  icon: <Monitor />,
+  title: 'Custom Solutions',
+  desc: 'Tailored digital solutions designed specifically for your unique business requirements and goals.',
+};
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
@@ -47,21 +49,24 @@ export default function ServicesPage() {
   const leftServicesRef = useRef(null);
   const rightServicesRef = useRef(null);
   const ctaRef = useRef(null);
+  const iconRefs = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation
+      // Title animation with smooth entrance
       gsap.fromTo(titleRef.current, 
         {
-          y: 50,
+          y: 80,
           opacity: 0,
-          scale: 0.8
+          scale: 0.7,
+          rotationX: 30
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 1,
+          rotationX: 0,
+          duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: titleRef.current,
@@ -72,19 +77,21 @@ export default function ServicesPage() {
         }
       );
 
-      // Left services animation
+      // Left services with enhanced smooth animation
       gsap.fromTo(leftServicesRef.current.children,
         {
-          x: -100,
+          x: -120,
           opacity: 0,
-          rotation: -5
+          rotation: -10,
+          scale: 0.8
         },
         {
           x: 0,
           opacity: 1,
           rotation: 0,
-          duration: 0.8,
-          stagger: 0.2,
+          scale: 1,
+          duration: 1,
+          stagger: 0.25,
           ease: "power3.out",
           scrollTrigger: {
             trigger: leftServicesRef.current,
@@ -95,19 +102,21 @@ export default function ServicesPage() {
         }
       );
 
-      // Right services animation
+      // Right services with enhanced smooth animation
       gsap.fromTo(rightServicesRef.current.children,
         {
-          x: 100,
+          x: 120,
           opacity: 0,
-          rotation: 5
+          rotation: 10,
+          scale: 0.8
         },
         {
           x: 0,
           opacity: 1,
           rotation: 0,
-          duration: 0.8,
-          stagger: 0.2,
+          scale: 1,
+          duration: 1,
+          stagger: 0.25,
           ease: "power3.out",
           scrollTrigger: {
             trigger: rightServicesRef.current,
@@ -118,18 +127,45 @@ export default function ServicesPage() {
         }
       );
 
-      // CTA animation
+      // Icon animations with smooth scaling
+      iconRefs.current.forEach((icon, index) => {
+        if (icon) {
+          gsap.fromTo(icon,
+            {
+              scale: 0,
+              rotation: 180,
+              opacity: 0
+            },
+            {
+              scale: 1,
+              rotation: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+              delay: index * 0.1 + 0.5,
+              scrollTrigger: {
+                trigger: icon.closest('.service-item'),
+                start: "top 75%",
+                end: "bottom 25%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+      });
+
+      // CTA with smooth bounce animation
       gsap.fromTo(ctaRef.current,
         {
-          y: 30,
+          y: 60,
           opacity: 0,
-          scale: 0.9
+          scale: 0.8
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.6,
+          duration: 0.8,
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: ctaRef.current,
@@ -144,29 +180,30 @@ export default function ServicesPage() {
     return () => ctx.revert();
   }, []);
 
+  const addToIconRefs = (el) => {
+    if (el && !iconRefs.current.includes(el)) {
+      iconRefs.current.push(el);
+    }
+  };
+
   return (
     <div ref={containerRef} id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md p-6 sm:p-8 lg:p-10">
-          {/* Title */}
           <div ref={titleRef} className="text-center mb-6 sm:mb-8">
             <div className="inline-block relative">
-              {/* NEW Badge */}
               <div className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2">
                 <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl text-xs sm:text-sm font-bold shadow-lg transform rotate-12">
                   NEW!
                 </div>
               </div>
-              {/* Main Title */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent">
                 Our Services
               </h1>
             </div>
           </div>
 
-          {/* Services layout */}
           <div className="relative">
-            {/* central radial glow */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
               <div className="w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-purple-300 via-pink-300 to-indigo-200 opacity-60 blur-3xl transform scale-100"></div>
             </div>
@@ -174,8 +211,8 @@ export default function ServicesPage() {
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               <div ref={leftServicesRef} className="space-y-6 sm:space-y-8">
                 {servicesLeft.map((s, i) => (
-                  <div key={i} className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div key={i} className="service-item flex items-start gap-3 sm:gap-4">
+                    <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       {React.cloneElement(s.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
                     </div>
                     <div>
@@ -188,8 +225,8 @@ export default function ServicesPage() {
 
               <div ref={rightServicesRef} className="space-y-6 sm:space-y-8">
                 {servicesRight.map((s, i) => (
-                  <div key={i} className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div key={i} className="service-item flex items-start gap-3 sm:gap-4">
+                    <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       {React.cloneElement(s.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
                     </div>
                     <div>
@@ -198,11 +235,19 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 ))}
+                <div className="service-item flex items-start gap-3 sm:gap-4">
+                  <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    {React.cloneElement(additionalService.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{additionalService.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{additionalService.desc}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* CTA */}
           <div ref={ctaRef} className="mt-8 sm:mt-10 flex justify-center px-4">
             <div className="bg-white rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow text-gray-800 text-sm sm:text-base text-center">
               Want to discuss <a href="#" className="underline font-semibold ml-1 sm:ml-2">Let's Schedule a Call</a>

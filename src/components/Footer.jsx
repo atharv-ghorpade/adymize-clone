@@ -1,4 +1,5 @@
 import React from 'react';
+import admarkLogo from '../assets/admarklogo.png';
 
 export default function Footer() {
   return (
@@ -7,11 +8,11 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-6">
           {/* Adymize Logo */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-purple-600 rounded-lg flex items-center justify-center transform rotate-12">
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-            </div>
+            <img 
+              src={admarkLogo} 
+              alt="Admark Logo" 
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
+            />
             <span className="text-xl sm:text-2xl font-bold text-gray-800">Adymize</span>
           </div>
           

@@ -14,19 +14,20 @@ const AdymizeServiceCards = () => {
         if (card) {
           const isEven = index % 2 === 0;
           
+          // Enhanced card animation with more dramatic entrance
           gsap.fromTo(card,
             {
-              x: isEven ? -100 : 100,
+              x: isEven ? -150 : 150,
               opacity: 0,
-              rotationY: isEven ? -15 : 15,
-              scale: 0.9
+              rotationY: isEven ? -20 : 20,
+              scale: 0.8
             },
             {
               x: 0,
               opacity: 1,
               rotationY: 0,
               scale: 1,
-              duration: 1,
+              duration: 1.2,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: card,
@@ -37,21 +38,23 @@ const AdymizeServiceCards = () => {
             }
           );
 
-          // Animate mockup elements inside each card
+          // Enhanced mockup elements animation
           const mockup = card.querySelector('.mockup-container');
           if (mockup) {
             gsap.fromTo(mockup,
               {
-                y: 50,
+                y: 80,
                 opacity: 0,
-                scale: 0.8
+                scale: 0.7,
+                rotationX: 15
               },
               {
                 y: 0,
                 opacity: 1,
                 scale: 1,
-                duration: 0.8,
-                delay: 0.3,
+                rotationX: 0,
+                duration: 1,
+                delay: 0.4,
                 ease: "back.out(1.7)",
                 scrollTrigger: {
                   trigger: card,
@@ -63,20 +66,22 @@ const AdymizeServiceCards = () => {
             );
           }
 
-          // Animate content elements
+          // Enhanced content elements animation with stagger
           const content = card.querySelector('.content-container');
           if (content) {
             gsap.fromTo(content.children,
               {
-                y: 30,
-                opacity: 0
+                y: 50,
+                opacity: 0,
+                scale: 0.9
               },
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.6,
-                stagger: 0.1,
-                delay: 0.4,
+                scale: 1,
+                duration: 0.8,
+                stagger: 0.15,
+                delay: 0.6,
                 ease: "power2.out",
                 scrollTrigger: {
                   trigger: card,

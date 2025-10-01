@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import admarkLogo from '../assets/admarklogo.png';
 
 const navLinks = [
+  { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Clients', href: '#clients' },
   { name: 'Why Adymize?', href: '#why-adymize' },
@@ -29,15 +32,16 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-30 overflow-hidden">
       <div className="w-full flex justify-center px-2 sm:px-4">
-        <div className="mt-1 sm:mt-2 lg:mt-6 w-full max-w-[calc(100vw-16px)] sm:max-w-[calc(100vw-32px)] lg:max-w-5xl pointer-events-auto rounded-xl sm:rounded-2xl bg-white/70 backdrop-blur-md shadow-lg overflow-hidden">
+        <div className="mt-1 sm:mt-1 lg:mt-2 w-full max-w-[calc(100vw-16px)] sm:max-w-[calc(100vw-32px)] lg:max-w-5xl pointer-events-auto rounded-xl sm:rounded-2xl backdrop-blur-md shadow-lg overflow-hidden" style={{background: 'linear-gradient(90deg, #6D28D9, #2563EB)', opacity: '0.9'}}>
         {/* Desktop/Mobile Header */}
-        <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 py-2 sm:py-3">
+        <div className="flex items-center justify-between px-2 sm:px-3 lg:px-4 py-0">
           {/* Logo */}
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center -rotate-12">
-              <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 bg-white rounded-sm"></div>
-            </div>
-            <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 tracking-tight">Adymize</span>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center flex-shrink-0">
+            <img 
+              src={admarkLogo} 
+              alt="Admark Logo" 
+              className="w-20 h-10 sm:w-24 sm:h-14 lg:w-28 lg:h-16 object-contain"
+            />
           </button>
 
           {/* Desktop Nav Links - Hidden on mobile */}
@@ -47,7 +51,7 @@ export default function Header() {
                 <button
                   key={link.name}
                   onClick={() => smoothScrollTo(link.href.replace('#', ''))}
-                  className="text-sm xl:text-base text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                  className="text-sm xl:text-base text-gray-100 hover:text-white font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap"
                 >
                   {link.name}
                 </button>
@@ -58,7 +62,7 @@ export default function Header() {
           {/* Desktop CTA Button - Hidden on mobile */}
           <button
             onClick={() => smoothScrollTo('faqs')}
-            className="hidden lg:block bg-gray-900 text-white px-3 xl:px-4 py-2 xl:py-2.5 rounded-xl font-semibold shadow hover:bg-gray-800 transition-all duration-200 text-xs xl:text-sm whitespace-nowrap flex-shrink-0"
+            className="hidden lg:block bg-white text-purple-700 px-3 xl:px-4 py-2 xl:py-2.5 rounded-xl font-semibold shadow hover:bg-gray-50 transition-all duration-200 text-xs xl:text-sm whitespace-nowrap flex-shrink-0 border border-white/20"
           >
             Chat Now
           </button>
@@ -66,20 +70,20 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-white/10 transition-colors duration-200 flex-shrink-0"
             aria-label="Toggle mobile menu"
           >
             <div className="w-5 h-5 sm:w-6 sm:h-6 flex flex-col justify-center items-center">
-              <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-              <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm my-0.5 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+              <span className={`bg-white block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+              <span className={`bg-white block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm my-0.5 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`bg-white block transition-all duration-300 ease-out h-0.5 w-5 sm:w-6 rounded-sm ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
             </div>
           </button>
         </div>
 
         {/* Mobile Menu - Dropdown */}
         <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-          <div className="px-3 sm:px-4 py-2 border-t border-gray-200/50">
+          <div className="px-3 sm:px-4 py-2 border-t border-white/20">
             {navLinks.map(link => (
               <button
                 key={link.name}
@@ -87,7 +91,7 @@ export default function Header() {
                   smoothScrollTo(link.href.replace('#', ''));
                   setIsMobileMenuOpen(false);
                 }}
-                className="block w-full text-left py-2.5 sm:py-3 text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 border-b border-gray-100 last:border-b-0 text-sm sm:text-base"
+                className="block w-full text-left py-2.5 sm:py-3 text-gray-100 hover:text-white font-medium transition-colors duration-200 border-b border-white/20 last:border-b-0 text-sm sm:text-base"
               >
                 {link.name}
               </button>
@@ -97,7 +101,7 @@ export default function Header() {
                 smoothScrollTo('faqs');
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full mt-3 sm:mt-4 mb-2 bg-gray-900 text-white px-4 py-2.5 sm:py-3 rounded-xl font-semibold text-center hover:bg-gray-800 transition-all duration-200 text-sm sm:text-base"
+              className="block w-full mt-3 sm:mt-4 mb-2 bg-white text-purple-700 px-4 py-2.5 sm:py-3 rounded-xl font-semibold text-center hover:bg-gray-50 transition-all duration-200 text-sm sm:text-base border border-white/20"
             >
               Chat Now
             </button>

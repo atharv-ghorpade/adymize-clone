@@ -1,5 +1,6 @@
 import React from 'react';
 import AdymizeHero from './pages/AdymizeHero';
+import AboutUs from './pages/AboutUs';
 import ServicesPage from './pages/ServicePage';
 import AdymizeServiceCards from './pages/AdymizeServiceCards';
 import HowItStartsPage from './pages/HowItStartsPage';
@@ -14,6 +15,7 @@ function Home() {
   return (
     <>
       <AdymizeHero />
+      <AboutUs />
       <ServicesPage />
       <AdymizeServiceCards />
       <HowItStartsPage />

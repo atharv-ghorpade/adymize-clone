@@ -14,19 +14,21 @@ export default function WhatMakesUsUnique() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
+      // Enhanced header animation with more dynamic movement
       gsap.fromTo(headerRef.current.children,
         {
-          y: -30,
+          y: -50,
           opacity: 0,
-          scale: 0.9
+          scale: 0.8,
+          rotationX: 15
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
+          rotationX: 0,
+          duration: 1,
+          stagger: 0.25,
           ease: "power3.out",
           scrollTrigger: {
             trigger: headerRef.current,
@@ -37,18 +39,20 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // Others column animation
+      // Enhanced others column animation
       gsap.fromTo(othersColumnRef.current,
         {
-          x: -100,
+          x: -150,
           opacity: 0,
-          rotationY: -20
+          rotationY: -25,
+          scale: 0.9
         },
         {
           x: 0,
           opacity: 1,
           rotationY: 0,
-          duration: 1,
+          scale: 1,
+          duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: othersColumnRef.current,
@@ -59,19 +63,21 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // Others list items
+      // Enhanced others list items with wave effect
       gsap.fromTo(othersColumnRef.current.querySelectorAll('li'),
         {
-          x: -50,
-          opacity: 0
+          x: -80,
+          opacity: 0,
+          scale: 0.8
         },
         {
           x: 0,
           opacity: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          delay: 0.3,
-          ease: "power2.out",
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          delay: 0.4,
+          ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: othersColumnRef.current,
             start: "top 70%",
@@ -81,18 +87,20 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // Advmize column animation
+      // Enhanced Advmize column animation
       gsap.fromTo(advmizeColumnRef.current,
         {
-          x: 100,
+          x: 150,
           opacity: 0,
-          rotationY: 20
+          rotationY: 25,
+          scale: 0.9
         },
         {
           x: 0,
           opacity: 1,
           rotationY: 0,
-          duration: 1,
+          scale: 1,
+          duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: advmizeColumnRef.current,
@@ -103,17 +111,19 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // Advmize badge
+      // Enhanced Advmize badge with more dramatic entrance
       gsap.fromTo(advmizeColumnRef.current.querySelector('.advmize-badge'),
         {
           scale: 0,
-          rotation: -180
+          rotation: -360,
+          opacity: 0
         },
         {
           scale: 1,
           rotation: 0,
-          duration: 0.8,
-          delay: 0.2,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.3,
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: advmizeColumnRef.current,
@@ -124,21 +134,21 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // Advmize list items
+      // Enhanced Advmize list items with bouncy entrance
       gsap.fromTo(advmizeColumnRef.current.querySelectorAll('li'),
         {
-          x: 50,
+          x: 80,
           opacity: 0,
-          scale: 0.8
+          scale: 0.7
         },
         {
           x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          delay: 0.5,
-          ease: "back.out(1.7)",
+          duration: 0.8,
+          stagger: 0.2,
+          delay: 0.6,
+          ease: "elastic.out(1, 0.5)",
           scrollTrigger: {
             trigger: advmizeColumnRef.current,
             start: "top 70%",
@@ -148,18 +158,18 @@ export default function WhatMakesUsUnique() {
         }
       );
 
-      // CTA animation
+      // Enhanced CTA animation
       gsap.fromTo(ctaRef.current,
         {
-          y: 50,
+          y: 80,
           opacity: 0,
-          scale: 0.8
+          scale: 0.7
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.8,
+          duration: 1,
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: ctaRef.current,

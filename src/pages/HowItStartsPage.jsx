@@ -17,18 +17,21 @@ const HowItStartsPage = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
-      gsap.fromTo(headerRef.current, 
+      // Enhanced header animation with smoother entrance
+      gsap.fromTo(headerRef.current.children, 
         {
           opacity: 0,
-          y: 50,
-          scale: 0.95
+          y: 80,
+          scale: 0.8,
+          rotationX: 15
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1,
+          rotationX: 0,
+          duration: 1.2,
+          stagger: 0.3,
           ease: "power3.out",
           scrollTrigger: {
             trigger: headerRef.current,
@@ -39,20 +42,22 @@ const HowItStartsPage = () => {
         }
       );
 
-      // Steps animations with stagger
+      // Enhanced steps animations with more dynamic movement
       gsap.fromTo([step1Ref.current, step2Ref.current, step3Ref.current],
         {
           opacity: 0,
-          x: -60,
-          scale: 0.9
+          x: -100,
+          scale: 0.8,
+          rotationY: -15
         },
         {
           opacity: 1,
           x: 0,
           scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.2,
+          rotationY: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.25,
           scrollTrigger: {
             trigger: stepsContainerRef.current,
             start: "top 70%",
@@ -62,20 +67,20 @@ const HowItStartsPage = () => {
         }
       );
 
-      // Dashboard container animation
+      // Enhanced dashboard container animation
       gsap.fromTo(dashboardRef.current,
         {
           opacity: 0,
-          x: 60,
-          rotation: 5,
-          scale: 0.8
+          x: 120,
+          rotation: 8,
+          scale: 0.7
         },
         {
           opacity: 1,
           x: 0,
           rotation: 0,
           scale: 1,
-          duration: 1.2,
+          duration: 1.5,
           ease: "power3.out",
           scrollTrigger: {
             trigger: dashboardRef.current,
@@ -86,20 +91,22 @@ const HowItStartsPage = () => {
         }
       );
 
-      // Daily payments card animation
+      // Enhanced daily payments card animation
       gsap.fromTo(dailyPaymentsRef.current,
         {
           opacity: 0,
-          y: 30,
-          scale: 0.95
+          y: 50,
+          scale: 0.8,
+          rotationX: 10
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
+          rotationX: 0,
+          duration: 1,
           ease: "back.out(1.7)",
-          delay: 0.3,
+          delay: 0.4,
           scrollTrigger: {
             trigger: dailyPaymentsRef.current,
             start: "top 80%",
@@ -109,20 +116,22 @@ const HowItStartsPage = () => {
         }
       );
 
-      // Analytics section animation
+      // Enhanced analytics section animation
       gsap.fromTo(analyticsRef.current,
         {
           opacity: 0,
-          y: 40,
-          scale: 0.9
+          y: 60,
+          scale: 0.85,
+          rotationY: 5
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1,
-          ease: "power2.out",
-          delay: 0.5,
+          rotationY: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          delay: 0.6,
           scrollTrigger: {
             trigger: analyticsRef.current,
             start: "top 85%",
@@ -132,20 +141,22 @@ const HowItStartsPage = () => {
         }
       );
 
-      // Chart bars animation with stagger
+      // Enhanced chart bars animation with wave effect
       gsap.fromTo(chartBarsRef.current,
         {
           scaleY: 0,
           opacity: 0,
-          transformOrigin: "bottom"
+          transformOrigin: "bottom",
+          rotation: 5
         },
         {
           scaleY: 1,
           opacity: 1,
-          duration: 0.6,
-          ease: "bounce.out",
-          stagger: 0.1,
-          delay: 0.8,
+          rotation: 0,
+          duration: 0.8,
+          ease: "elastic.out(1, 0.5)",
+          stagger: 0.15,
+          delay: 1,
           scrollTrigger: {
             trigger: analyticsRef.current,
             start: "top 80%",
@@ -166,38 +177,38 @@ const HowItStartsPage = () => {
   };
 
   return (
-    <div id="why-adymize" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50/30 py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
-          <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
+          <div className="p-6 sm:p-8 lg:p-12">
             
             {/* Header Section */}
-            <div ref={headerRef} className="text-center mb-8 sm:mb-10 lg:mb-12">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
-                <span className="text-xs sm:text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
+            <div ref={headerRef} className="text-center mb-12">
+              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full mb-8">
+                <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
                   ONBOARDING  ONBOARDING  ONBOARDING
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 leading-tight px-2">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 leading-tight">
                 How it starts?
               </h1>
             </div>
 
             {/* Process Steps */}
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
               
               {/* Left Side - Steps */}
-              <div ref={stepsContainerRef} className="space-y-6 sm:space-y-8 lg:space-y-10">
+              <div ref={stepsContainerRef} className="space-y-10">
                 
                 {/* Step 1 */}
                 <div ref={step1Ref} className="group">
-                  <div className="flex items-start gap-4 sm:gap-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                      <span className="text-white font-bold text-lg sm:text-xl">1</span>
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <span className="text-white font-bold text-xl">1</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 mb-2 sm:mb-4">Plan Your Growth</h3>
-                      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                      <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-4">Plan Your Growth</h3>
+                      <p className="text-slate-600 text-lg leading-relaxed">
                         Dream big, strategize with us, and turn plans into profits.
                       </p>
                     </div>
@@ -236,8 +247,8 @@ const HowItStartsPage = () => {
               </div>
 
               {/* Right Side - Dashboard Mockup */}
-              <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-                <div ref={dashboardRef} className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-3xl shadow-2xl p-4 sm:p-6 max-w-xs sm:max-w-sm w-full border border-white/20">
+              <div className="flex justify-center lg:justify-end">
+                <div ref={dashboardRef} className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-3xl shadow-2xl p-6 max-w-sm w-full border border-white/20">
                   
                   {/* Daily Payments Card */}
                   <div ref={dailyPaymentsRef} className="mb-8">
