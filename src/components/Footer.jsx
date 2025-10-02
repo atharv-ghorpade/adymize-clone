@@ -100,7 +100,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-white text-sm text-center font-medium">
-            © 2025 Adymize. All rights reserved.
+            © 2025 AD Mark. All rights reserved.
           </div>
           
         </div>

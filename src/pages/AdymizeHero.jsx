@@ -1,12 +1,37 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import facebookLogo from '../assets/facebook-logo.png';
 import googleLogo from '../assets/google-logo.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AdymizeHero = () => {
   const heroRef = useRef(null);
   const facebookLogoRef = useRef(null);
   const googleLogoRef = useRef(null);
+  const statsRef = useRef(null);
+  
+  // Counter states
+  const [yearsCount, setYearsCount] = useState(0);
+  const [clientsCount, setClientsCount] = useState(0);
+  const [projectsCount, setProjectsCount] = useState(0);
+  
+  // Counter animation function
+  const animateCounter = (start, end, duration, setValue) => {
+    const startTime = Date.now();
+    const animate = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      const current = Math.floor(start + (end - start) * progress);
+      setValue(current);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -45,9 +70,24 @@ const AdymizeHero = () => {
           delay: 1
         }
       );
+
+      // Statistics counter animation
+      ScrollTrigger.create({
+        trigger: statsRef.current,
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+          animateCounter(0, 4, 2000, setYearsCount);
+          animateCounter(0, 31, 2500, setClientsCount);
+          animateCounter(0, 240, 3000, setProjectsCount);
+        }
+      });
     }, heroRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (
@@ -104,18 +144,18 @@ const AdymizeHero = () => {
             </div>
 
             {/* Statistics */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 lg:mb-12 shadow-lg border border-white/20 max-w-4xl mx-auto">
+            <div ref={statsRef} className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 lg:mb-12 shadow-lg border border-white/20 max-w-4xl mx-auto">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">4+</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">{yearsCount}+</div>
                   <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Years of Excellence</div>
                 </div>
                 <div className="text-center border-t sm:border-t-0 sm:border-l sm:border-r border-slate-200 pt-4 sm:pt-0">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">31+</div>
-                  <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Active Clinets</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-2">{clientsCount}+</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Active Clients</div>
                 </div>
                 <div className="text-center border-t sm:border-t-0 border-slate-200 pt-4 sm:pt-0">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-2">240+</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-2">{projectsCount}+</div>
                   <div className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium">Projects Completed</div>
                 </div>
               </div>
