@@ -64,12 +64,12 @@ const AdymizeHero = () => {
           <div ref={heroRef} className="text-center relative">
             {/* Main Headline */}
             <div className="mb-6 sm:mb-8 lg:mb-12">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight px-2">
-                <span className="block text-slate-800 mb-1 sm:mb-2">Creative Thinking.</span>
-                <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent relative">
-                  Strategic Action. Real Results.
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-relaxed px-2">
+                <span className="block text-slate-800 mb-2 sm:mb-3">Creative Thinking,</span>
+                <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent relative pb-4">
+                  Strategic Action, Real Results.
                   {/* Underline decoration */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-48 sm:w-64 md:w-80 h-1">
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-80 sm:w-96 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] h-1">
                     <svg viewBox="0 0 300 10" className="w-full h-full">
                       <path
                         d="M5 5 Q150 0 295 5"
@@ -99,7 +99,7 @@ const AdymizeHero = () => {
                 We build lasting partnerships by fusing creativity, technology, and strategy — ensuring your
                 business doesn't just exist online, but thrives. Our proven strategies have generated 
                 <span className="font-bold text-green-600"> ₹5+ Crores in revenue </span> 
-                for 500+ brands worldwide.
+                for <span className="font-bold text-green-600"> 500+ brands</span> worldwide.
               </p>
             </div>
 
@@ -155,7 +155,7 @@ const AdymizeHero = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-blue-700 to-cyan-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-500 mx-auto leading-relaxed text-center whitespace-nowrap">
                 🔒 No commitment required • 💡 Get actionable insights • ⚡ 30-minute session
               </p>
             </div>

@@ -6,9 +6,9 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Clients', href: '#clients' },
-  { name: 'Why Adymize?', href: '#why-adymize' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'FAQs', href: '#faqs' },
+  { name: 'Why Choose Us?', href: '#why-choose-us' },
+  { name: 'Reviews', href: '#hear-from-them' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 // Smooth scroll function with offset for fixed header
@@ -61,7 +61,7 @@ export default function Header() {
 
           {/* Desktop CTA Button - Hidden on mobile */}
           <button
-            onClick={() => smoothScrollTo('faqs')}
+            onClick={() => smoothScrollTo('contact')}
             className="hidden lg:block bg-white text-purple-700 px-3 xl:px-4 py-2 xl:py-2.5 rounded-xl font-semibold shadow hover:bg-gray-50 transition-all duration-200 text-xs xl:text-sm whitespace-nowrap flex-shrink-0 border border-white/20"
           >
             Chat Now

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import solutionLogo from '../assets/solution.png';
+import admarkLogo from '../assets/admarklogo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,11 +128,19 @@ const AboutUs = () => {
       <main className="relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div ref={headerRef} className="text-center relative mb-16">
+            {/* Special Badge */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full">
+                <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
+                  ABOUT • ABOUT • ABOUT
+                </span>
+              </div>
+            </div>
             {/* Section Header */}
             <div className="mb-8 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight px-2">
-                <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent relative">
-                  About Us
+                  <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent relative">
+                    About Us
                   {/* Underline decoration */}
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-48 sm:w-64 md:w-80 h-1">
                     <svg viewBox="0 0 300 10" className="w-full h-full">
@@ -150,67 +159,85 @@ const AboutUs = () => {
                         </linearGradient>
                       </defs>
                     </svg>
-                  </div>
-                </span>
-              </h2>
+                    </div>
+                  </span>
+                </h2>
+              </div>
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 font-medium max-w-4xl mx-auto leading-relaxed px-2">
                 At Adymize, we are passionate about transforming ideas into compelling digital experiences. 
-                With 4+ years of dedicated experience in delivering high-quality digital solutions, we partner 
+                With <span className="font-bold text-green-600">4+ years of dedicated experience</span> in delivering high-quality digital solutions, we partner 
                 with businesses to elevate their online presence, amplify reach, and achieve measurable outcomes.
               </p>
             </div>
           </div>
 
           {/* Philosophy Section */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div ref={philosophyRef} className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 sm:p-10 lg:p-12 shadow-lg border border-white/20">
-              <div className="flex items-center justify-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
-                  <img 
-                    ref={logoRef}
-                    src={solutionLogo} 
-                    alt="Philosophy Icon" 
-                    className="w-6 h-6 object-contain"
-                  />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">Our Philosophy</h3>
-              </div>
-              
-              <div className="space-y-6 text-slate-600 leading-relaxed">
-                <div ref={addToListRefs} className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
+              <div className="flex flex-row gap-8 items-start">
+                {/* Left Content */}
+                <div className="flex-1 md:flex-[2]">
+                  <div className="flex items-center justify-center space-x-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
+                      <img 
+                        ref={logoRef}
+                        src={solutionLogo} 
+                        alt="Philosophy Icon" 
+                        className="w-6 h-6 object-contain"
+                      />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">Our Philosophy</h3>
                   </div>
-                  <p className="text-lg">We listen first: no one-size-fits-all.</p>
+                  
+                  <div className="space-y-6 text-slate-600 leading-relaxed">
+                    <div ref={addToListRefs} className="flex items-start space-x-4">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <p className="text-lg font-bold">We listen first: no one-size-fits-all.</p>
+                    </div>
+                    
+                    <div ref={addToListRefs} className="flex items-start space-x-4">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <p className="text-lg font-bold">We customize solutions that align with your goals.</p>
+                    </div>
+                    
+                    <div ref={addToListRefs} className="flex items-start space-x-4">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <p className="text-lg font-bold">We prioritize measurable impact — every campaign, design,<br />or code we deliver is meant to drive growth.</p>
+                    </div>
+                    
+                    <div ref={addToListRefs} className="flex items-start space-x-4">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                      <p className="text-lg font-bold">We aim for long-term relationships, not just projects.</p>
+                    </div>
                 </div>
                 
-                <div ref={addToListRefs} className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
+                {/* Right Side - Logo */}
+                <div className="flex-1 flex items-start justify-center pt-4">
+                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-6 rounded-2xl shadow-lg border-2 border-purple-200 hover:shadow-xl transition-all duration-300 hover:scale-105 w-full max-w-xs">
+                    <div className="flex items-center justify-center">
+                      <img 
+                        src={admarkLogo} 
+                        alt="AD Mark Logo" 
+                        className="w-36 h-18 object-contain"
+                      />
+                    </div>
                   </div>
-                  <p className="text-lg">We customize solutions that align with your goals.</p>
-                </div>
-                
-                <div ref={addToListRefs} className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                  </div>
-                  <p className="text-lg">We prioritize measurable impact — every campaign, design, or code we deliver is meant to drive growth.</p>
-                </div>
-                
-                <div ref={addToListRefs} className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                  </div>
-                  <p className="text-lg">We aim for long-term relationships, not just projects.</p>
                 </div>
               </div>
             </div>

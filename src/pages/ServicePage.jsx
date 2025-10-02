@@ -190,13 +190,16 @@ export default function ServicesPage() {
     <div ref={containerRef} id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md p-6 sm:p-8 lg:p-10">
-          <div ref={titleRef} className="text-center mb-6 sm:mb-8">
-            <div className="inline-block relative">
-              <div className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2">
-                <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl text-xs sm:text-sm font-bold shadow-lg transform rotate-12">
-                  NEW!
-                </div>
+          <div ref={titleRef} className="text-center mb-12 sm:mb-16 pt-4">
+            {/* Special Badge */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full">
+                <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
+                  SERVICES • SERVICES • SERVICES
+                </span>
               </div>
+            </div>
+            <div className="inline-block">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent">
                 Our Services
               </h1>
