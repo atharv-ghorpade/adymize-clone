@@ -1,4 +1,7 @@
 import React from 'react';
+import instagramLogo from '../assets/instagram.png';
+import linkedinLogo from '../assets/linkedin.png';
+import whatsappLogo from '../assets/whatsapp.png';
 
 // Smooth scroll function for navigation
 const smoothScrollTo = (elementId) => {
@@ -66,6 +69,34 @@ export default function Footer() {
               Contact
             </button>
           </nav>
+
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-4">
+            <a 
+              href="https://wa.me/1234567890" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
+            >
+              <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5 object-contain" />
+            </a>
+            <a 
+              href="https://instagram.com/adymize" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
+            >
+              <img src={instagramLogo} alt="Instagram" className="w-5 h-5 object-contain" />
+            </a>
+            <a 
+              href="https://linkedin.com/company/adymize" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
+            >
+              <img src={linkedinLogo} alt="LinkedIn" className="w-5 h-5 object-contain" />
+            </a>
+          </div>
 
           {/* Copyright */}
           <div className="text-white text-sm text-center font-medium">

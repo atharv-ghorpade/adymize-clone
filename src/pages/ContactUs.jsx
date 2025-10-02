@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Phone, Mail, MapPin, Instagram, Linkedin, Send, User, MessageSquare } from 'lucide-react';
+import gmailLogo from '../assets/gmail.png';
+import instagramLogo from '../assets/instagram.png';
+import linkedinLogo from '../assets/linkedin.png';
+import googleMapsLogo from '../assets/google-maps.png';
+import whatsappLogo from '../assets/whatsapp.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -212,8 +217,8 @@ const ContactUs = () => {
                   onClick={handleWhatsAppClick}
                   className="flex items-center gap-4 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors duration-300 cursor-pointer group"
                 >
-                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                    <img src={whatsappLogo} alt="WhatsApp" className="w-8 h-8 object-contain" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">WhatsApp</h3>
@@ -224,8 +229,8 @@ const ContactUs = () => {
 
                 {/* Email */}
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                    <img src={gmailLogo} alt="Gmail" className="w-8 h-8 object-contain" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">Email</h3>
@@ -236,8 +241,8 @@ const ContactUs = () => {
 
                 {/* Address */}
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                    <img src={googleMapsLogo} alt="Google Maps" className="w-8 h-8 object-contain" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">Office Address</h3>
@@ -256,17 +261,17 @@ const ContactUs = () => {
                   href="https://instagram.com/adymize" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
+                  className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
                 >
-                  <Instagram className="w-6 h-6 text-white" />
+                  <img src={instagramLogo} alt="Instagram" className="w-8 h-8 object-contain" />
                 </a>
                 <a 
                   href="https://linkedin.com/company/adymize" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
+                  className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
                 >
-                  <Linkedin className="w-6 h-6 text-white" />
+                  <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8 object-contain" />
                 </a>
               </div>
             </div>
