@@ -137,9 +137,9 @@ const AdymizeHero = () => {
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed px-2">
                 We build lasting partnerships by fusing creativity, technology, and strategy — ensuring your
-                business doesn't just exist online, but thrives. Our proven strategies have generated 
+                ecommerce business doesn't just exist online, but thrives. Our proven strategies have generated 
                 <span className="font-bold text-green-600"> ₹5+ Crores in revenue </span> 
-                for <span className="font-bold text-green-600"> 500+ brands</span> worldwide.
+                for <span className="font-bold text-green-600"> 500+ ecommerce brands</span> worldwide.
               </p>
             </div>
 
