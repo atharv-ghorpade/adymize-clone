@@ -14,17 +14,17 @@ export default function NeedHelpFAQ() {
   const faqs = [
     {
       id: 1,
-      question: "Why should I choose Adymize over other agencies?",
-      answer: "Adymize offers faster responses, ethical approaches, accurate reporting, and precise resolutions compared to other agencies. Our unique methodology ensures superior results for your business."
+      question: "Why should I choose ADMark Tech over other agencies?",
+      answer: "ADMark Tech offers faster responses, ethical approaches, accurate reporting, and precise resolutions compared to other agencies. Our unique methodology ensures superior results for your business."
     },
     {
       id: 2,
-      question: "What sets Adymize apart from the competition?",
+      question: "What sets ADMark Tech apart from the competition?",
       answer: "Our commitment to timely delivery, transparent communication, innovative strategies, and personalized service makes us stand out in the competitive landscape."
     },
     {
       id: 3,
-      question: "How can Adymize guarantee accurate reporting?",
+      question: "How can ADMark Tech guarantee accurate reporting?",
       answer: "We use advanced analytics tools, real-time monitoring systems, and rigorous quality checks to ensure all our reports are accurate, comprehensive, and actionable."
     }
   ];

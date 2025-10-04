@@ -164,7 +164,7 @@ const AboutUs = () => {
                 </h2>
               </div>
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 font-medium max-w-4xl mx-auto leading-relaxed px-2">
-                At Adymize, we are passionate about transforming ideas into compelling digital experiences. 
+                At ADMark Tech, we are passionate about transforming ideas into compelling digital experiences. 
                 With <span className="font-bold text-green-600">4+ years of dedicated experience</span> in delivering high-quality digital solutions, we partner 
                 with businesses to elevate their online presence, amplify reach, and achieve measurable outcomes.
               </p>

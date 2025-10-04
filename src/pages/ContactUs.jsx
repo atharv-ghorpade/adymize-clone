@@ -234,7 +234,7 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">Email</h3>
-                    <p className="text-slate-600">contact@adymize.com</p>
+                    <p className="text-slate-600">contact@admarktech.com</p>
                     <p className="text-sm text-blue-600">We reply within 24 hours</p>
                   </div>
                 </div>
@@ -258,7 +258,7 @@ const ContactUs = () => {
               <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Follow Us</h2>
               <div className="flex justify-center gap-6">
                 <a 
-                  href="https://instagram.com/adymize" 
+                  href="https://instagram.com/admarktech" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
@@ -266,7 +266,7 @@ const ContactUs = () => {
                   <img src={instagramLogo} alt="Instagram" className="w-8 h-8 object-contain" />
                 </a>
                 <a 
-                  href="https://linkedin.com/company/adymize" 
+                  href="https://linkedin.com/company/admarktech" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"

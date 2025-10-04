@@ -208,7 +208,7 @@ export default function WhatMakesUsUnique() {
             {/* Subtitle */}
             <div className="text-center mb-12">
               <p className="text-lg text-gray-500 font-medium">
-                What Makes Adymize Different
+                What Makes ADMark Tech Different
               </p>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function WhatMakesUsUnique() {
             <div ref={advmizeColumnRef} className="text-left">
               <div className="mb-8">
                 <span className="advmize-badge bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                  ADYMIZE
+                  ADMARK TECH
                 </span>
               </div>
               <ul className="space-y-6">

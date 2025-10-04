@@ -81,7 +81,7 @@ export default function Footer() {
               <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5 object-contain" />
             </a>
             <a 
-              href="https://instagram.com/adymize" 
+              href="https://instagram.com/admarktech" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
@@ -89,7 +89,7 @@ export default function Footer() {
               <img src={instagramLogo} alt="Instagram" className="w-5 h-5 object-contain" />
             </a>
             <a 
-              href="https://linkedin.com/company/adymize" 
+              href="https://linkedin.com/company/admarktech" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300"

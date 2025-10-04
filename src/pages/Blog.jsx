@@ -12,7 +12,7 @@ const blogPosts = [
     title: "Top 5 Marketing Automation Tools Every Business Should Use",
     excerpt: "Discover the most powerful marketing automation tools that can streamline your processes, increase efficiency, and boost your ROI.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-    author: "Adymize Team",
+    author: "ADMark Tech Team",
     date: "Oct 15, 2024",
     category: "Marketing Automation"
   },
@@ -21,7 +21,7 @@ const blogPosts = [
     title: "Why Every Startup Needs a Strong Digital Marketing Strategy",
     excerpt: "Learn why having a solid digital marketing foundation is crucial for startup success and how to build one from the ground up.",
     image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=300&fit=crop",
-    author: "Adymize Team",
+    author: "ADMark Tech Team",
     date: "Oct 12, 2024",
     category: "Startup Marketing"
   },
@@ -30,7 +30,7 @@ const blogPosts = [
     title: "Web3 and Marketing: Preparing for the Next Digital Era",
     excerpt: "Explore how Web3 technologies are reshaping digital marketing and what businesses need to know to stay ahead of the curve.",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&h=300&fit=crop",
-    author: "Adymize Team",
+    author: "ADMark Tech Team",
     date: "Oct 10, 2024",
     category: "Web3 Marketing"
   }
