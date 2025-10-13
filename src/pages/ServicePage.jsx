@@ -1,71 +1,65 @@
 import React, { useEffect, useRef } from 'react';
-import { Monitor, Smartphone, TrendingUp, Palette, Layers } from 'lucide-react';
+import { Monitor, Smartphone, TrendingUp, Palette, ChevronLeft, ChevronRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const servicesLeft = [
+const services = [
   {
     icon: <Monitor />,
     title: 'Web Design & Development',
-    desc: "Responsive, user-friendly, visually compelling websites that engage your audience and drive results.",
+    desc: "Responsive, user-friendly websites that engage your audience and drive results.",
+    gradient: 'from-purple-500 via-pink-500 to-red-500',
+    mockupImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center',
+    glowColor: 'shadow-purple-500/25'
   },
   {
     icon: <Smartphone />,
     title: 'Mobile App Development',
-    desc: "Custom mobile solutions for Android, iOS, and cross-platform development tailored to your business needs.",
+    desc: "Custom mobile solutions for Android, iOS, and cross-platform development.",
+    gradient: 'from-blue-500 via-cyan-500 to-teal-500',
+    mockupImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&crop=center',
+    glowColor: 'shadow-blue-500/25'
   },
   {
     icon: <TrendingUp />,
     title: 'Digital Marketing',
-    desc: "SEO, SEM, social media, and paid campaigns designed to maximize your ROI and online presence.",
+    desc: "SEO, SEM, social media, and paid campaigns designed to maximize your ROI.",
+    gradient: 'from-green-500 via-emerald-500 to-cyan-500',
+    mockupImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center',
+    glowColor: 'shadow-green-500/25'
   },
-];
-
-const servicesRight = [
   {
     icon: <Palette />,
-    title: 'Branding & Logo Design',
-    desc: 'Professional logos, comprehensive brand guides, and striking graphics that create a strong, memorable identity.',
-  },
-  {
-    icon: <Layers />,
-    title: 'UI/UX & Graphic Design',
-    desc: 'Clean layouts, intuitive interfaces, and compelling visual designs that enhance user experience and appeal.',
+    title: 'Branding & Design',
+    desc: 'Professional logos, brand guides, and compelling visual designs that create memorable identity.',
+    gradient: 'from-orange-500 via-pink-500 to-purple-500',
+    mockupImage: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop&crop=center',
+    glowColor: 'shadow-orange-500/25'
   },
 ];
-
-// Additional service for better layout balance
-const additionalService = {
-  icon: <Monitor />,
-  title: 'Custom Solutions',
-  desc: 'Tailored digital solutions designed specifically for your unique business requirements and goals.',
-};
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
   const titleRef = useRef(null);
-  const leftServicesRef = useRef(null);
-  const rightServicesRef = useRef(null);
+  const cardsRef = useRef(null);
   const ctaRef = useRef(null);
-  const iconRefs = useRef([]);
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation with smooth entrance
+      // Title animation
       gsap.fromTo(titleRef.current, 
         {
           y: 80,
           opacity: 0,
           scale: 0.7,
-          rotationX: 30
         },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          rotationX: 0,
           duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
@@ -77,24 +71,24 @@ export default function ServicesPage() {
         }
       );
 
-      // Left services with enhanced smooth animation
-      gsap.fromTo(leftServicesRef.current.children,
+      // Cards animation
+      gsap.fromTo(cardsRef.current.children,
         {
-          x: -120,
+          y: 100,
           opacity: 0,
-          rotation: -10,
-          scale: 0.8
+          scale: 0.8,
+          rotationY: 20
         },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          rotation: 0,
           scale: 1,
+          rotationY: 0,
           duration: 1,
-          stagger: 0.25,
+          stagger: 0.2,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: leftServicesRef.current,
+            trigger: cardsRef.current,
             start: "top 70%",
             end: "bottom 30%",
             toggleActions: "play none none reverse"
@@ -102,59 +96,7 @@ export default function ServicesPage() {
         }
       );
 
-      // Right services with enhanced smooth animation
-      gsap.fromTo(rightServicesRef.current.children,
-        {
-          x: 120,
-          opacity: 0,
-          rotation: 10,
-          scale: 0.8
-        },
-        {
-          x: 0,
-          opacity: 1,
-          rotation: 0,
-          scale: 1,
-          duration: 1,
-          stagger: 0.25,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: rightServicesRef.current,
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Icon animations with smooth scaling
-      iconRefs.current.forEach((icon, index) => {
-        if (icon) {
-          gsap.fromTo(icon,
-            {
-              scale: 0,
-              rotation: 180,
-              opacity: 0
-            },
-            {
-              scale: 1,
-              rotation: 0,
-              opacity: 1,
-              duration: 0.8,
-              ease: "back.out(1.7)",
-              delay: index * 0.1 + 0.5,
-              scrollTrigger: {
-                trigger: icon.closest('.service-item'),
-                start: "top 75%",
-                end: "bottom 25%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        }
-      });
-
-      // CTA with smooth bounce animation
+      // CTA animation
       gsap.fromTo(ctaRef.current,
         {
           y: 60,
@@ -180,84 +122,146 @@ export default function ServicesPage() {
     return () => ctx.revert();
   }, []);
 
-  const addToIconRefs = (el) => {
-    if (el && !iconRefs.current.includes(el)) {
-      iconRefs.current.push(el);
-    }
+  const scrollLeft = () => {
+    scrollContainerRef.current.scrollBy({
+      left: -320,
+      behavior: 'smooth'
+    });
+  };
+
+  const scrollRight = () => {
+    scrollContainerRef.current.scrollBy({
+      left: 320,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <div ref={containerRef} id="services" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 overflow-x-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-md p-6 sm:p-8 lg:p-10">
-          <div ref={titleRef} className="text-center mb-12 sm:mb-16 pt-4">
-            {/* Special Badge */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full">
-                <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
-                  SERVICES • SERVICES • SERVICES
-                </span>
-              </div>
-            </div>
-            <div className="inline-block">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent">
-                Our Services
-              </h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div ref={titleRef} className="text-center mb-12 sm:mb-16 pt-4">
+          {/* Special Badge */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-8 py-3 rounded-full">
+              <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent uppercase tracking-wide">
+                SERVICES • SERVICES • SERVICES
+              </span>
             </div>
           </div>
+          <div className="inline-block">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 bg-clip-text text-transparent">
+              Our Services
+            </h1>
+          </div>
+        </div>
 
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <div className="w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-purple-300 via-pink-300 to-indigo-200 opacity-60 blur-3xl transform scale-100"></div>
-            </div>
+        {/* Services Cards - Horizontal Carousel */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button 
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-300 lg:hidden"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          
+          <button 
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-300 lg:hidden"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-              <div ref={leftServicesRef} className="space-y-6 sm:space-y-8">
-                {servicesLeft.map((s, i) => (
-                  <div key={i} className="service-item flex items-start gap-3 sm:gap-4">
-                    <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      {React.cloneElement(s.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto pb-6 scrollbar-hide scroll-smooth"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            <div ref={cardsRef} className="flex gap-6 sm:gap-8 px-4 lg:grid lg:grid-cols-2 xl:grid-cols-4 lg:px-0">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="group relative w-80 lg:w-auto flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
+                  {/* Gradient Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  
+                  {/* Glow Effect */}
+                  <div className={`absolute -inset-0.5 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 ${service.glowColor}`}></div>
+                  
+                  <div className="relative bg-white rounded-3xl p-6 sm:p-8 h-full flex flex-col">
+                    {/* Mockup Image */}
+                    <div className="relative mb-6 overflow-hidden rounded-2xl">
+                      <img 
+                        src={service.mockupImage} 
+                        alt={service.title}
+                        className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                     </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              <div ref={rightServicesRef} className="space-y-6 sm:space-y-8">
-                {servicesRight.map((s, i) => (
-                  <div key={i} className="service-item flex items-start gap-3 sm:gap-4">
-                    <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      {React.cloneElement(s.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
+                    {/* Icon */}
+                    <div className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-4 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500`}>
+                      {React.cloneElement(service.icon, { className: 'w-7 h-7 text-white' })}
                     </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+
+                    {/* Content */}
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-500">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {service.desc}
+                      </p>
                     </div>
-                  </div>
-                ))}
-                <div className="service-item flex items-start gap-3 sm:gap-4">
-                  <div ref={addToIconRefs} className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    {React.cloneElement(additionalService.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6 text-purple-600' })}
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{additionalService.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{additionalService.desc}</p>
+
+                    {/* Hover Accent */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-3xl`}></div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-
-          <div ref={ctaRef} className="mt-8 sm:mt-10 flex justify-center px-4">
-            <div className="bg-white rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow text-gray-800 text-sm sm:text-base text-center">
-              Want to discuss <a href="#" className="underline font-semibold ml-1 sm:ml-2">Let's Schedule a Call</a>
+          
+          {/* Enhanced Scroll Indicators */}
+          <div className="lg:hidden flex justify-center mt-6">
+            <div className="flex space-x-3">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    scrollContainerRef.current.scrollTo({
+                      left: index * 320,
+                      behavior: 'smooth'
+                    });
+                  }}
+                  className="w-3 h-3 rounded-full bg-purple-200 hover:bg-purple-400 transition-colors duration-300"
+                />
+              ))}
             </div>
           </div>
         </div>
+
+        <div ref={ctaRef} className="mt-12 sm:mt-16 flex justify-center px-4">
+          <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-lg border border-white/20 text-gray-800 text-sm sm:text-base text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
+            Want to discuss your project? 
+            <a href="#" className="underline font-semibold ml-2 text-purple-600 hover:text-purple-700">
+              Let's Schedule a Call
+            </a>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

@@ -28,7 +28,7 @@ const AdymizeServiceCards = () => {
               rotationY: 0,
               scale: 1,
               duration: 1.2,
-              ease: "power3.out",
+              ease: "elastic.in",
               scrollTrigger: {
                 trigger: card,
                 start: "top 80%",
