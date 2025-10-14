@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdymizeHero from './pages/AdymizeHero';
 import AboutUs from './pages/AboutUs';
 import ServicesPage from './pages/ServicePage';
@@ -10,12 +11,20 @@ import WhatMakesUsUnique from './pages/WhatMakesUsUnique';
 import HearFromThem from './pages/HearFromThem';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
+import TestimonialCarousel from './components/TestimonialCarousel';
+import { 
+  BrandingDesign, 
+  WebDesignDevelopment, 
+  MobileAppDevelopment, 
+  DigitalMarketing 
+} from './pages/services';
 
 // Create a Home component that renders all sections
 function Home() {
   return (
     <>
       <AdymizeHero />
+      <TestimonialCarousel />
       <AboutUs />
       <ServicesPage />
       <AdymizeServiceCards />
@@ -29,12 +38,57 @@ function Home() {
   );
 }
 
-function App() {
+// Layout component for service pages
+function ServiceLayout({ children }) {
   return (
     <div className="App overflow-x-hidden">
       <Header />
-      <Home />
+      {children}
+      <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="App overflow-x-hidden">
+        <Routes>
+          {/* Home route */}
+          <Route path="/" element={
+            <>
+              <Header />
+              <Home />
+            </>
+          } />
+          
+          {/* Service routes */}
+          <Route path="/services/branding-design" element={
+            <ServiceLayout>
+              <BrandingDesign />
+            </ServiceLayout>
+          } />
+          
+          <Route path="/services/web-design-development" element={
+            <ServiceLayout>
+              <WebDesignDevelopment />
+            </ServiceLayout>
+          } />
+          
+          <Route path="/services/mobile-app-development" element={
+            <ServiceLayout>
+              <MobileAppDevelopment />
+            </ServiceLayout>
+          } />
+          
+          <Route path="/services/digital-marketing" element={
+            <ServiceLayout>
+              <DigitalMarketing />
+            </ServiceLayout>
+          } />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

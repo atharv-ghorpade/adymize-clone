@@ -95,14 +95,14 @@ const AdymizeHero = () => {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 flex items-center justify-center min-h-screen">
+      <main className="relative z-10 flex items-center justify-center min-h-screen pointer-events-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div ref={heroRef} className="space-y-16">
             {/* Main Headline */}
             <div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight text-white drop-shadow-lg">
                 <span className="block mb-2">Creative Thinking,</span>
-                <span className="block font-medium bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                <span className="block font-medium bg-gradient-to-r py-4 from-white to-gray-200 bg-clip-text text-transparent">
                   Strategic Action, Real Results.
                 </span>
               </h1>
@@ -111,31 +111,47 @@ const AdymizeHero = () => {
             {/* Statistics */}
             <div
               ref={statsRef}
-              className=" backdrop-blur-sm rounded-2xl p-12 shadow-xl border border-white/20 max-w-4xl mx-auto bg-white/0"
-              style={{
-                background: 'rgba(255, 241, 241, 0.42)', // subtle glass effect, but still lets pointer events through
-              }}
+              className="  rounded-2xl p-12  max-w-4xl mx-auto pointer-events-auto"
+             
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div className="text-center">
-                  <div className="text-5xl lg:text-6xl font-light text-gray-800 mb-3">
-                    {yearsCount}+
-                  </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-600 font-medium">Years of Excellence</div>
-                </div>
-                <div className="text-center border-t md:border-t-0 md:border-l md:border-r border-gray-200 pt-12 md:pt-0">
-                  <div className="text-5xl lg:text-6xl font-light text-gray-800 mb-3">
-                    {clientsCount}+
-                  </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-600 font-medium">Active Clients</div>
-                </div>
-                <div className="text-center border-t md:border-t-0 border-gray-200 pt-12 md:pt-0">
-                  <div className="text-5xl lg:text-6xl font-light text-indigo-600 mb-3">
-                    {projectsCount}+
-                  </div>
-                  <div className="text-sm uppercase tracking-wider text-gray-600 font-medium">Projects Completed</div>
-                </div>
-              </div>
+              <div className="rounded-xl relative py-6 bg-gradient-to-b from-white via-gray-50 to-white">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+    
+    {/* Years of Excellence */}
+    <div className="text-center">
+      <div className="text-5xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+        {yearsCount}<span className="text-indigo-500">+</span>
+      </div>
+      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+        Years of Excellence
+      </div>
+    </div>
+
+    {/* Active Clients */}
+    <div className="text-center border-t md:border-t-0 md:border-x border-gray-200 py-10 md:py-0">
+      <div className="text-5xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+        {clientsCount}<span className="text-indigo-500">+</span>
+      </div>
+      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+        Active Clients
+      </div>
+    </div>
+
+    {/* Projects Completed */}
+    <div className="text-center">
+      <div className="text-5xl md:text-5xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-2 tracking-tight">
+        {projectsCount}<span className="text-gray-900">+</span>
+      </div>
+      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+        Projects Completed
+      </div>
+    </div>
+  </div>
+
+  {/* Optional subtle glow background */}
+  <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-indigo-50 via-transparent to-purple-50 blur-2xl opacity-40"></div>
+</div>
+
             </div>
           </div>
         </div>

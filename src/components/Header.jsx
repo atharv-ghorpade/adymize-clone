@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import admarkLogo from '../assets/admarklogo.png';
 import mainLogo from '../assets/logo.png';
@@ -28,7 +29,12 @@ const smoothScrollTo = (elementId) => {
 };
 
 export default function Header() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Check if we're on home page
+  const isHomePage = location.pathname === '/';
 
   return (
     <header className="fixed top-0 left-0 w-full z-30 overflow-hidden">
@@ -37,7 +43,7 @@ export default function Header() {
         {/* Desktop/Mobile Header */}
         <div className="flex items-center justify-between px-2 sm:px-3 lg:px-4 py-0">
           {/* Logo */}
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center flex-shrink-0">
+          <button onClick={() => navigate('/')} className="flex items-center flex-shrink-0">
             <img 
               src={admarkLogo} 
               alt="Admark Logo" 
@@ -51,7 +57,13 @@ export default function Header() {
               {navLinks.map(link => (
                 <button
                   key={link.name}
-                  onClick={() => smoothScrollTo(link.href.replace('#', ''))}
+                  onClick={() => {
+                    if (isHomePage) {
+                      smoothScrollTo(link.href.replace('#', ''));
+                    } else {
+                      navigate('/' + link.href);
+                    }
+                  }}
                   className="text-sm xl:text-base text-gray-100 hover:text-white font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap"
                 >
                   {link.name}
@@ -62,7 +74,13 @@ export default function Header() {
 
           {/* Desktop CTA Button - Hidden on mobile */}
           <button
-            onClick={() => smoothScrollTo('contact')}
+            onClick={() => {
+              if (isHomePage) {
+                smoothScrollTo('contact');
+              } else {
+                navigate('/#contact');
+              }
+            }}
             className="hidden lg:block bg-white text-purple-700 px-3 xl:px-4 py-2 xl:py-2.5 rounded-xl font-semibold shadow hover:bg-gray-50 transition-all duration-200 text-xs xl:text-sm whitespace-nowrap flex-shrink-0 border border-white/20"
           >
             Chat Now
@@ -89,7 +107,11 @@ export default function Header() {
               <button
                 key={link.name}
                 onClick={() => {
-                  smoothScrollTo(link.href.replace('#', ''));
+                  if (isHomePage) {
+                    smoothScrollTo(link.href.replace('#', ''));
+                  } else {
+                    navigate('/' + link.href);
+                  }
                   setIsMobileMenuOpen(false);
                 }}
                 className="block w-full text-left py-2.5 sm:py-3 text-gray-100 hover:text-white font-medium transition-colors duration-200 border-b border-white/20 last:border-b-0 text-sm sm:text-base"
@@ -99,7 +121,11 @@ export default function Header() {
             ))}
             <button
               onClick={() => {
-                smoothScrollTo('faqs');
+                if (isHomePage) {
+                  smoothScrollTo('contact');
+                } else {
+                  navigate('/#contact');
+                }
                 setIsMobileMenuOpen(false);
               }}
               className="block w-full mt-3 sm:mt-4 mb-2 bg-white text-purple-700 px-4 py-2.5 sm:py-3 rounded-xl font-semibold text-center hover:bg-gray-50 transition-all duration-200 text-sm sm:text-base border border-white/20"

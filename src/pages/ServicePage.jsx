@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Monitor, Smartphone, TrendingUp, Palette, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Monitor, Smartphone, TrendingUp, Palette, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,7 +13,8 @@ const services = [
     desc: "Responsive, user-friendly websites that engage your audience and drive results.",
     gradient: 'from-purple-500 via-pink-500 to-red-500',
     mockupImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center',
-    glowColor: 'shadow-purple-500/25'
+    glowColor: 'shadow-purple-500/25',
+    link: '/services/web-design-development'
   },
   {
     icon: <Smartphone />,
@@ -20,7 +22,8 @@ const services = [
     desc: "Custom mobile solutions for Android, iOS, and cross-platform development.",
     gradient: 'from-blue-500 via-cyan-500 to-teal-500',
     mockupImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&crop=center',
-    glowColor: 'shadow-blue-500/25'
+    glowColor: 'shadow-blue-500/25',
+    link: '/services/mobile-app-development'
   },
   {
     icon: <TrendingUp />,
@@ -28,7 +31,8 @@ const services = [
     desc: "SEO, SEM, social media, and paid campaigns designed to maximize your ROI.",
     gradient: 'from-green-500 via-emerald-500 to-cyan-500',
     mockupImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center',
-    glowColor: 'shadow-green-500/25'
+    glowColor: 'shadow-green-500/25',
+    link: '/services/digital-marketing'
   },
   {
     icon: <Palette />,
@@ -36,11 +40,13 @@ const services = [
     desc: 'Professional logos, brand guides, and compelling visual designs that create memorable identity.',
     gradient: 'from-orange-500 via-pink-500 to-purple-500',
     mockupImage: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop&crop=center',
-    glowColor: 'shadow-orange-500/25'
+    glowColor: 'shadow-orange-500/25',
+    link: '/services/branding-design'
   },
 ];
 
 export default function ServicesPage() {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const cardsRef = useRef(null);
@@ -181,8 +187,9 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="group relative w-80 lg:w-auto flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
+                  className="group relative w-80 lg:w-auto flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer"
                   style={{ scrollSnapAlign: 'start' }}
+                  onClick={() => navigate(service.link)}
                 >
                   {/* Gradient Background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
@@ -211,9 +218,15 @@ export default function ServicesPage() {
                       <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-500">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
                         {service.desc}
                       </p>
+                      
+                      {/* Learn More Button */}
+                      <div className="flex items-center text-purple-600 group-hover:text-pink-600 transition-colors duration-300">
+                        <span className="text-sm font-semibold">Learn More</span>
+                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
                     </div>
 
                     {/* Hover Accent */}
