@@ -53,6 +53,14 @@ export default function ServicesPage() {
   const ctaRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
+  // New refs for enhanced animations
+  const section1Ref = useRef(null);
+  const gif1Ref = useRef(null);
+  const content1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const gif2Ref = useRef(null);
+  const content2Ref = useRef(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Title animation
@@ -66,7 +74,7 @@ export default function ServicesPage() {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 1.2,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
             trigger: titleRef.current,
@@ -91,12 +99,99 @@ export default function ServicesPage() {
           scale: 1,
           rotationY: 0,
           duration: 1,
-          stagger: 0.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: cardsRef.current,
             start: "top 70%",
             end: "bottom 30%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Section 1 animations
+      gsap.fromTo(gif1Ref.current,
+        {
+          x: -100,
+          opacity: 0,
+          scale: 0.8
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section1Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      gsap.fromTo(content1Ref.current,
+        {
+          x: 100,
+          opacity: 0,
+          scale: 0.9
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section1Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Section 2 animations
+      gsap.fromTo(gif2Ref.current,
+        {
+          x: -100,
+          opacity: 0,
+          scale: 0.8
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section2Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      gsap.fromTo(content2Ref.current,
+        {
+          x: 100,
+          opacity: 0,
+          scale: 0.9
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section2Ref.current,
+            start: "top 80%",
+            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
@@ -140,6 +235,12 @@ export default function ServicesPage() {
       left: 320,
       behavior: 'smooth'
     });
+  };
+
+  const handleScheduleCall = () => {
+    // Direct phone dial
+    const phoneNumber = "+1234567890"; // Replace with actual phone number
+    window.location.href = `tel:${phoneNumber}`;
   };
 
   return (
@@ -259,9 +360,12 @@ export default function ServicesPage() {
         <div ref={ctaRef} className="mt-12 sm:mt-16 flex justify-center px-4">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-lg border border-white/20 text-gray-800 text-sm sm:text-base text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
             Want to discuss your project? 
-            <a href="#" className="underline font-semibold ml-2 text-purple-600 hover:text-purple-700">
+            <button 
+              onClick={handleScheduleCall}
+              className="underline font-semibold ml-2 text-purple-600 hover:text-purple-700 transition-colors duration-200 cursor-pointer"
+            >
               Let's Schedule a Call
-            </a>
+            </button>
           </div>
         </div>
       </div>

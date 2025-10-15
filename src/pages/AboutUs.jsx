@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gif7 from '../assets/gif/7.mp4';
+import gif8 from '../assets/gif/8.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,11 +130,15 @@ const AboutUs = () => {
                 {/* Left Side - GIF */}
                 <div ref={gif1Ref} className="order-2 lg:order-1">
                   <div className="relative bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 shadow-lg">
-                    <div className="aspect-square bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
-                      {/* Replace with your actual GIF */}
-                      <div className="w-full h-full bg-white/20 rounded-xl flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">ADS GIF</span>
-                      </div>
+                    <div className="aspect-video rounded-xl overflow-hidden">
+                      <video 
+                        src={gif7} 
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover rounded-xl"
+                      />
                     </div>
                   </div>
                 </div>
@@ -185,10 +191,7 @@ const AboutUs = () => {
                         <p className="text-slate-600 font-medium">Comprehensive analytics and performance reporting</p>
                       </div>
                     </div>
-                    
-                    <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                      Get Started Today
-                    </button>
+                   
                   </div>
                 </div>
               </div>
@@ -203,11 +206,15 @@ const AboutUs = () => {
                 {/* Left Side - GIF */}
                 <div ref={gif2Ref}>
                   <div className="relative bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 shadow-lg">
-                    <div className="aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                      {/* Replace with your actual GIF */}
-                      <div className="w-full h-full bg-white/20 rounded-xl flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">WEB DEV GIF</span>
-                      </div>
+                    <div className="aspect-video rounded-xl overflow-hidden">
+                      <video 
+                        src={gif8} 
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover rounded-xl"
+                      />
                     </div>
                   </div>
                 </div>
@@ -261,9 +268,7 @@ const AboutUs = () => {
                       </div>
                     </div>
                     
-                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                      View Our Work
-                    </button>
+                 
                   </div>
                 </div>
               </div>
@@ -276,3 +281,4 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+

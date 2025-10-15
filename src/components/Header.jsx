@@ -5,12 +5,12 @@ import admarkLogo from '../assets/admarklogo.png';
 import mainLogo from '../assets/logo.png';
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Clients', href: '#clients' },
-  { name: 'Why Choose Us?', href: '#why-choose-us' },
-  { name: 'Reviews', href: '#hear-from-them' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '#services', isSection: true },
+  { name: 'Blog', href: '/blog', isSection: false },
+  { name: 'Clients', href: '#clients', isSection: true },
+  { name: 'Why Choose Us?', href: '#why-choose-us', isSection: true },
+  { name: 'Reviews', href: '#hear-from-them', isSection: true },
+  { name: 'Contact', href: '#contact', isSection: true },
 ];
 
 // Smooth scroll function with offset for fixed header
@@ -58,10 +58,14 @@ export default function Header() {
                 <button
                   key={link.name}
                   onClick={() => {
-                    if (isHomePage) {
-                      smoothScrollTo(link.href.replace('#', ''));
+                    if (link.isSection) {
+                      if (isHomePage) {
+                        smoothScrollTo(link.href.replace('#', ''));
+                      } else {
+                        navigate('/' + link.href);
+                      }
                     } else {
-                      navigate('/' + link.href);
+                      navigate(link.href);
                     }
                   }}
                   className="text-sm xl:text-base text-gray-100 hover:text-white font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap"
@@ -107,10 +111,14 @@ export default function Header() {
               <button
                 key={link.name}
                 onClick={() => {
-                  if (isHomePage) {
-                    smoothScrollTo(link.href.replace('#', ''));
+                  if (link.isSection) {
+                    if (isHomePage) {
+                      smoothScrollTo(link.href.replace('#', ''));
+                    } else {
+                      navigate('/' + link.href);
+                    }
                   } else {
-                    navigate('/' + link.href);
+                    navigate(link.href);
                   }
                   setIsMobileMenuOpen(false);
                 }}

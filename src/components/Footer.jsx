@@ -60,7 +60,7 @@ export default function Footer() {
           {/* Social Media Links */}
           <div className="flex gap-4">
             <a 
-              href="https://wa.me/1234567890" 
+              href="https://wa.me/917058277558" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 bg-gray-100 hover:bg-green-100 rounded-lg flex items-center justify-center transition-colors duration-200"
@@ -78,7 +78,7 @@ export default function Footer() {
               <img src={instagramLogo} alt="Instagram" className="w-4 h-4 object-contain" />
             </a>
             <a 
-              href="https://linkedin.com/company/admarktech" 
+              href="https://www.linkedin.com/in/ad-mark-tech-615572356" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-colors duration-200"

@@ -1,7 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import img1 from '../assets/hearfromthem/1.webp';
+import img2 from '../assets/hearfromthem/2.webp';
+import img3 from '../assets/hearfromthem/3.webp';
+import img4 from '../assets/hearfromthem/4.webp';
+import img5 from '../assets/hearfromthem/5.webp';
+import img6 from '../assets/hearfromthem/6.webp';
+import img7 from '../assets/hearfromthem/7.webp';
+import img8 from '../assets/hearfromthem/8.webp';
+import img9 from '../assets/hearfromthem/9.webp';
+import img10 from '../assets/hearfromthem/10.webp';
+import img11 from '../assets/hearfromthem/11.webp';
+import img12 from '../assets/hearfromthem/12.webp';
+import img13 from '../assets/hearfromthem/13.webp';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HearFromThem() {
@@ -93,6 +105,8 @@ export default function HearFromThem() {
     return () => ctx.revert();
   }, []);
 
+  const logoImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+
   return (
     <div ref={containerRef} id="hear-from-them" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,52 +194,15 @@ export default function HearFromThem() {
         {/* Company Logos Grid */}
         <div ref={logosRef} className="bg-gray-50/50 rounded-2xl p-8">
           <div className="grid grid-cols-5 gap-6 items-center justify-items-center">
-            {/* Row 1 */}
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">M</span>
+            {logoImages.map((logo, index) => (
+              <div key={index} className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
+                <img 
+                  src={logo} 
+                  alt={`Company logo ${index + 1}`} 
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xs">⚡</span>
-              </div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="text-green-600 font-bold text-xs">myntra</div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xs">☕</span>
-              </div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="text-red-500 font-semibold text-xs text-center">
-                <span>Techo</span>
-                <div className="text-blue-600 text-xs">+ Geniuses</div>
-              </div>
-            </div>
-            
-            {/* Row 2 */}
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="text-gray-600 font-bold text-xs">LC</span>
-              </div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="text-gray-600 font-bold text-xs text-center">SASTRA</div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="w-8 h-8 bg-black rounded-lg"></div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="text-gray-600 font-semibold text-xs">GROWTH</div>
-            </div>
-            <div className="logo-card bg-white rounded-xl p-4 shadow-sm w-24 h-16 flex items-center justify-center hover:shadow-md transition-shadow">
-              <div className="bg-blue-600 text-white px-2 py-1 text-xs font-bold rounded">
-                Genera+
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         </div>

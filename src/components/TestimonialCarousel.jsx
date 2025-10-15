@@ -3,41 +3,23 @@ import { gsap } from 'gsap';
 
 const testimonials = [
   {
-    name: 'Amit Sharma',
-    title: 'Marketing Head, TechNova',
-    quote: 'Adymize transformed our digital presence. Their creative strategies and execution delivered real results!',
-    avatar: 'AS'
+    name: 'Amol Kokate',
+    title: 'Founder, Green Vision Optical',
+    quote: 'Hum aapki social media aur digital marketing services se kaafi khush hain. Aapki team ne hamari online presence improve karne mein bahut help ki. Ab zyada log ham tak reach kar rahe hain. Thank you for your great support!',
+    avatar: 'AK'
   },
   {
-    name: 'Priya Desai',
-    title: 'Founder, GreenLeaf',
-    quote: 'The team at Adymize is professional, innovative, and always delivers on time. Highly recommended!',
-    avatar: 'PD'
+    name: 'Dr. Puja',
+    title: 'Cosmetologist and Dermatologist',
+    quote: 'I am really happy with the services from AdmarkTech. The team is very professional, responsive, and helped me grow my business digitally. Highly recommended!',
+    avatar: 'DP'
   },
   {
-    name: 'Rahul Mehta',
-    title: 'CEO, FinEdge',
-    quote: 'We saw a 200% increase in engagement after working with Adymize. Their expertise is unmatched.',
-    avatar: 'RM'
-  },
-  {
-    name: 'Sneha Kapoor',
-    title: 'Brand Manager, UrbanVibe',
-    quote: 'From strategy to execution, Adymize exceeded our expectations at every step.',
-    avatar: 'SK'
-  },
-  {
-    name: 'Vikram Singh',
-    title: 'CTO, DataFlow',
-    quote: 'Outstanding technical expertise and creative solutions. Adymize is our go-to agency.',
-    avatar: 'VS'
-  },
-  {
-    name: 'Meera Patel',
-    title: 'Marketing Director, FreshMart',
-    quote: 'They understood our vision perfectly and brought it to life beyond our expectations.',
-    avatar: 'MP'
-  },
+    name: 'Nanda Holistic Healing Center',
+    title: 'Healing and Therapy Center',
+    quote: 'Amchya startup sathi AD Mark Tech ni uttam strategies ani marketing services dilya. Content development pasun social media marketing ani startup strategies paryant pratyek goshtimule amchya business la changli pragati jhali.',
+    avatar: 'NH'
+  }
 ];
 
 const TestimonialCarousel = () => {
@@ -88,7 +70,7 @@ const TestimonialCarousel = () => {
   return (
     <section className="relative py-24 px-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl sm:text-4xl font-semibold mb-16 text-gray-900">Hear From Our Clients</h2>
+        <h2 className="text-3xl sm:text-4xl font-semibold mb-16 text-gray-900">What Our Customers Say About Us</h2>
         
         {/* Circular Testimonials Container */}
         <div 

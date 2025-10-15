@@ -6,6 +6,8 @@ import ServicesPage from './pages/ServicePage';
 import AdymizeServiceCards from './pages/AdymizeServiceCards';
 import HowItStartsPage from './pages/HowItStartsPage';
 import Blog from './pages/Blog';
+import BlogList from './pages/BlogList';
+import BlogPost from './pages/BlogPost';
 import Header from './components/Header';
 import WhatMakesUsUnique from './pages/WhatMakesUsUnique';
 import HearFromThem from './pages/HearFromThem';
@@ -29,9 +31,9 @@ function Home() {
       <ServicesPage />
       <AdymizeServiceCards />
       <HowItStartsPage />
-      <Blog />
       <WhatMakesUsUnique />
       <HearFromThem />
+      <Blog />
       <ContactUs />
       <Footer />
     </>
@@ -84,6 +86,19 @@ function App() {
           <Route path="/services/digital-marketing" element={
             <ServiceLayout>
               <DigitalMarketing />
+            </ServiceLayout>
+          } />
+          
+          {/* Blog routes */}
+          <Route path="/blog" element={
+            <ServiceLayout>
+              <BlogList />
+            </ServiceLayout>
+          } />
+          
+          <Route path="/blog/:id" element={
+            <ServiceLayout>
+              <BlogPost />
             </ServiceLayout>
           } />
         </Routes>

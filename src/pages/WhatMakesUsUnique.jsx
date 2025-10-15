@@ -136,6 +136,14 @@ export default function WhatMakesUsUnique() {
     }
   ];
 
+  const handleChatWithExperts = () => {
+    // Redirect to WhatsApp with pre-filled message
+    const phoneNumber = "1234567890"; // Replace with actual WhatsApp number
+    const message = "Hi! I have a question about your services and would like to chat with an expert.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div ref={containerRef} id="why-choose-us" className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-8 sm:py-12 lg:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,12 +224,12 @@ export default function WhatMakesUsUnique() {
             <div className="inline-block bg-gray-50 border border-gray-300 rounded-md px-5 py-3 mt-8">
               <span className="text-gray-500 text-sm">
                 Still have a question?{' '}
-                <a 
-                  href="#" 
-                  className="text-purple-600 font-semibold hover:underline"
+                <button 
+                  onClick={handleChatWithExperts}
+                  className="text-purple-600 font-semibold hover:underline hover:text-purple-700 transition-colors duration-200 cursor-pointer"
                 >
                   Chat with our experts
-                </a>
+                </button>
               </span>
             </div>
           </div>

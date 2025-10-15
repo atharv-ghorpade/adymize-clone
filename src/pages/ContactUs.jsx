@@ -146,7 +146,7 @@ const ContactUs = () => {
 
   const handleWhatsAppClick = () => {
     // Replace with your actual WhatsApp number
-    const whatsappNumber = "+1234567890"; // Update this with your number
+    const whatsappNumber = "+91 70582 77558";
     const message = "Hello! I'm interested in your services.";
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -222,7 +222,7 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">WhatsApp</h3>
-                    <p className="text-slate-600">+1 (234) 567-8900</p>
+                    <p className="text-slate-600">+91 70582 77558</p>
                     <p className="text-sm text-green-600">Click to chat with us!</p>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">Email</h3>
-                    <p className="text-slate-600">contact@admarktech.com</p>
+                    <p className="text-slate-600">info@admarktech.in</p>
                     <p className="text-sm text-blue-600">We reply within 24 hours</p>
                   </div>
                 </div>
@@ -246,8 +246,9 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800">Office Address</h3>
-                    <p className="text-slate-600">123 Business Street</p>
-                    <p className="text-slate-600">Suite 100, City, State 12345</p>
+                    <p className="text-slate-600">Office No. 1, The Origin, 7/A/II</p>
+                    <p className="text-slate-600">New Palam Vihar, Gurugram</p>
+                    <p className="text-slate-600">Haryana-122017</p>
                   </div>
                 </div>
               </div>
@@ -258,7 +259,7 @@ const ContactUs = () => {
               <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Follow Us</h2>
               <div className="flex justify-center gap-6">
                 <a 
-                  href="https://instagram.com/admarktech" 
+                  href="https://www.instagram.com/ad_mark_01/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
@@ -266,7 +267,7 @@ const ContactUs = () => {
                   <img src={instagramLogo} alt="Instagram" className="w-8 h-8 object-contain" />
                 </a>
                 <a 
-                  href="https://linkedin.com/company/admarktech" 
+                  href="https://www.linkedin.com/in/ad-mark-tech-615572356" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"

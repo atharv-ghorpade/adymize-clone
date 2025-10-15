@@ -1,54 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import { getFeaturedPosts } from '../data/blogData';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Featured blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "Top 5 Marketing Automation Tools Every Business Should Use",
-    excerpt: "Discover the most powerful marketing automation tools that can streamline your processes, increase efficiency, and boost your ROI.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-    author: "ADMark Tech Team",
-    date: "Oct 15, 2024",
-    category: "Marketing Automation"
-  },
-  {
-    id: 2,
-    title: "Why Every Startup Needs a Strong Digital Marketing Strategy",
-    excerpt: "Learn why having a solid digital marketing foundation is crucial for startup success and how to build one from the ground up.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=300&fit=crop",
-    author: "ADMark Tech Team",
-    date: "Oct 12, 2024",
-    category: "Startup Marketing"
-  },
-  {
-    id: 3,
-    title: "Web3 and Marketing: Preparing for the Next Digital Era",
-    excerpt: "Explore how Web3 technologies are reshaping digital marketing and what businesses need to know to stay ahead of the curve.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&h=300&fit=crop",
-    author: "ADMark Tech Team",
-    date: "Oct 10, 2024",
-    category: "Web3 Marketing"
-  }
-];
-
-// Additional blog posts that can be loaded with "Load More" functionality
-const additionalBlogPosts = [
-  // Future blog posts will be added here
-  // When new blogs are added, they can be appended to the main blogPosts array
-  // or loaded dynamically through this array
-];
 
 const Blog = () => {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const cardsRef = useRef([]);
-  const [displayedPosts, setDisplayedPosts] = useState(blogPosts);
-  const [hasMorePosts, setHasMorePosts] = useState(additionalBlogPosts.length > 0);
+  const [displayedPosts, setDisplayedPosts] = useState(getFeaturedPosts());
+  const [hasMorePosts, setHasMorePosts] = useState(true);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -109,15 +73,8 @@ const Blog = () => {
   };
 
   const handleLoadMore = () => {
-    // When new blog posts are added to additionalBlogPosts, 
-    // they will be appended to displayedPosts
-    if (additionalBlogPosts.length > 0) {
-      setDisplayedPosts([...displayedPosts, ...additionalBlogPosts]);
-      setHasMorePosts(false);
-    } else {
-      // Provide user feedback when no additional posts are available
-      alert("Great news! More amazing articles are coming soon. Stay tuned for fresh insights and tips!");
-    }
+    // Navigate to full blog list
+    window.location.href = '/blog';
   };
 
   return (
@@ -198,15 +155,18 @@ const Blog = () => {
               {/* Blog Content */}
               <div className="p-6 sm:p-8">
                 {/* Meta Information */}
-                <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
-                  <div className="flex items-center gap-1">
-                    <User className="w-4 h-4" />
-                    <span>{post.author}</span>
+                <div className="flex items-center justify-between text-sm text-slate-500 mb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1">
+                      <User className="w-4 h-4" />
+                      <span>{post.author}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{post.date}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{post.date}</span>
-                  </div>
+                  <span className="text-purple-600 font-medium">{post.readTime}</span>
                 </div>
 
                 {/* Title */}
@@ -220,28 +180,29 @@ const Blog = () => {
                 </p>
 
                 {/* Read More Button */}
-                <button className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors duration-300 group-hover:gap-3">
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors duration-300 group-hover:gap-3"
+                >
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Load More Section */}
+        {/* View All Articles Section */}
         <div className="text-center mt-16">
-          <button 
-            onClick={handleLoadMore}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          <Link
+            to="/blog"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
           >
-            Load More Articles
-          </button>
-          {!hasMorePosts && (
-            <p className="text-slate-600 text-sm mt-4">
-              More articles coming soon! Check back for fresh insights.
-            </p>
-          )}
+            View All Articles
+          </Link>
+          <p className="text-slate-600 text-sm mt-4">
+            Discover more insights, tips, and resources in our complete blog collection.
+          </p>
         </div>
       </div>
     </div>
