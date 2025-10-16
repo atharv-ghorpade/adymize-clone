@@ -114,7 +114,7 @@ const AdymizeHero = () => {
               className="rounded-2xl max-w-4xl mx-auto pointer-events-auto"
              
             >
-              <div className="rounded-xl relative py-4 md:py-6 bg-gradient-to-b from-white via-gray-50 to-white" style={{ fontFamily: "'Roboto', sans-serif" }}>
+              <div className="rounded-xl relative py-4 md:py-6 bg-gradient-to-b from-white via-gray-50 to-white">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto px-4 md:px-6">
     
     {/* Years of Excellence */}
