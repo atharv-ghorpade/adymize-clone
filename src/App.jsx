@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import AdymizeHero from './pages/AdymizeHero';
 import AboutUs from './pages/AboutUs';
 import ServicesPage from './pages/ServicePage';
@@ -44,7 +44,6 @@ function Home() {
 function ServiceLayout({ children }) {
   return (
     <div className="App overflow-x-hidden">
-      <Header />
       {children}
       <Footer />
     </div>

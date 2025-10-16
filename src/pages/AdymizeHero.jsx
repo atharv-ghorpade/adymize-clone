@@ -111,7 +111,7 @@ const AdymizeHero = () => {
             {/* Statistics */}
             <div
               ref={statsRef}
-              className="  rounded-2xl p-12  max-w-4xl mx-auto pointer-events-auto"
+              className="hidden md:block rounded-2xl p-12 max-w-4xl mx-auto pointer-events-auto"
              
             >
               <div className="rounded-xl relative py-6 bg-gradient-to-b from-white via-gray-50 to-white">
@@ -119,7 +119,7 @@ const AdymizeHero = () => {
     
     {/* Years of Excellence */}
     <div className="text-center">
-      <div className="text-5xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
         {yearsCount}<span className="text-indigo-500">+</span>
       </div>
       <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
@@ -129,7 +129,7 @@ const AdymizeHero = () => {
 
     {/* Active Clients */}
     <div className="text-center border-t md:border-t-0 md:border-x border-gray-200 py-10 md:py-0">
-      <div className="text-5xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
         {clientsCount}<span className="text-indigo-500">+</span>
       </div>
       <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
@@ -139,7 +139,7 @@ const AdymizeHero = () => {
 
     {/* Projects Completed */}
     <div className="text-center">
-      <div className="text-5xl md:text-5xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-2 tracking-tight">
+      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-2 tracking-tight">
         {projectsCount}<span className="text-gray-900">+</span>
       </div>
       <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">

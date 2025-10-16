@@ -40,7 +40,7 @@ export default function Footer() {
               AD Mark
             </h2>
             <p className="text-gray-600 text-sm max-w-xs">
-              Digital marketing solutions for modern businesses.
+               Tech solutions for modern businesses.
             </p>
           </div>
 
