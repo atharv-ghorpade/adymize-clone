@@ -101,9 +101,9 @@ const AdymizeHero = () => {
             {/* Main Headline */}
             <div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight text-white drop-shadow-lg">
-                <span className="block mb-2">Creative Thinking,</span>
+                <span className="block mb-2">Tech solutions for</span>
                 <span className="block font-medium bg-gradient-to-r py-4 from-white to-gray-200 bg-clip-text text-transparent">
-                  Strategic Action, Real Results.
+                  modern businesses.
                 </span>
               </h1>
             </div>
@@ -111,38 +111,38 @@ const AdymizeHero = () => {
             {/* Statistics */}
             <div
               ref={statsRef}
-              className="hidden md:block rounded-2xl p-12 max-w-4xl mx-auto pointer-events-auto"
+              className="rounded-2xl p-6 md:p-12 max-w-4xl mx-auto pointer-events-auto"
              
             >
-              <div className="rounded-xl relative py-6 bg-gradient-to-b from-white via-gray-50 to-white">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+              <div className="rounded-xl relative py-4 md:py-6 bg-gradient-to-b from-white via-gray-50 to-white">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto px-4 md:px-6">
     
     {/* Years of Excellence */}
     <div className="text-center">
-      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
         {yearsCount}<span className="text-indigo-500">+</span>
       </div>
-      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+      <div className="text-xs sm:text-sm uppercase tracking-widest text-gray-600 font-medium">
         Years of Excellence
       </div>
     </div>
 
     {/* Active Clients */}
-    <div className="text-center border-t md:border-t-0 md:border-x border-gray-200 py-10 md:py-0">
-      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
+    <div className="text-center border-t md:border-t-0 md:border-x border-gray-200 py-6 md:py-0">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-2 tracking-tight">
         {clientsCount}<span className="text-indigo-500">+</span>
       </div>
-      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+      <div className="text-xs sm:text-sm uppercase tracking-widest text-gray-600 font-medium">
         Active Clients
       </div>
     </div>
 
     {/* Projects Completed */}
     <div className="text-center">
-      <div className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-2 tracking-tight">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-2 tracking-tight">
         {projectsCount}<span className="text-gray-900">+</span>
       </div>
-      <div className="text-sm uppercase tracking-widest text-gray-600 font-medium">
+      <div className="text-xs sm:text-sm uppercase tracking-widest text-gray-600 font-medium">
         Projects Completed
       </div>
     </div>

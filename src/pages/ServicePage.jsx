@@ -239,7 +239,7 @@ export default function ServicesPage() {
 
   const handleScheduleCall = () => {
     // Direct phone dial
-    const phoneNumber = "+1234567890"; // Replace with actual phone number
+    const phoneNumber = "+917058277558"; // Replace with actual phone number
     window.location.href = `tel:${phoneNumber}`;
   };
 

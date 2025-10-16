@@ -91,51 +91,6 @@ export const blogPosts = [
     }
   },
   {
-    id: 3,
-    slug: "web3-marketing-future",
-    title: "Web3 and Marketing: Preparing for the Next Digital Era",
-    excerpt: "Explore how Web3 technologies are reshaping digital marketing and what businesses need to know to stay ahead of the curve.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&h=300&fit=crop",
-    author: "ADMark Tech Team",
-    date: "Oct 10, 2024",
-    readTime: "10 min read",
-    category: "Web3 Marketing",
-    tags: ["web3", "blockchain", "nft", "metaverse", "future", "technology"],
-    featured: true,
-    content: {
-      introduction: "Web3 represents a fundamental shift in how we interact with the internet, moving from centralized platforms to decentralized networks. For marketers, this evolution presents both exciting opportunities and significant challenges that require new strategies and approaches.",
-      sections: [
-        {
-          heading: "Understanding Web3 Fundamentals",
-          content: "Web3 is built on blockchain technology, emphasizing decentralization, user ownership, and transparency. Unlike Web2, where platforms own user data and content, Web3 gives users control over their digital assets and identity. This shift impacts how brands interact with customers and requires rethinking traditional marketing approaches.",
-          image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&h=400&fit=crop"
-        },
-        {
-          heading: "NFTs and Brand Engagement",
-          content: "Non-Fungible Tokens (NFTs) offer new ways for brands to create unique digital experiences and build community. Beyond digital art, NFTs can represent membership, access rights, or exclusive content. Brands are using NFTs for loyalty programs, limited edition products, and creating deeper engagement with their most passionate customers.",
-          image: "https://images.unsplash.com/photo-1641580474465-9efe9e60c6a1?w=800&h=400&fit=crop"
-        },
-        {
-          heading: "Community-Driven Marketing",
-          content: "Web3 emphasizes community ownership and governance. Brands must shift from broadcasting messages to facilitating conversations and empowering communities. Token-based governance allows customers to have a say in brand decisions, creating unprecedented levels of engagement and loyalty. This requires marketers to become community builders rather than just message creators.",
-          image: "https://images.unsplash.com/photo-1559521783-1d1599583485?w=800&h=400&fit=crop"
-        },
-        {
-          heading: "The Metaverse Marketing Landscape",
-          content: "Virtual worlds and metaverse platforms create new venues for brand experiences. From virtual storefronts to immersive brand experiences, the metaverse allows for creative marketing approaches that weren't possible before. Brands can host virtual events, create interactive experiences, and build persistent digital presence in these virtual spaces.",
-          image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=800&h=400&fit=crop"
-        },
-        {
-          heading: "Preparing Your Marketing Strategy",
-          content: "Transitioning to Web3 marketing requires education, experimentation, and patience. Start by understanding your audience's adoption of Web3 technologies, experiment with small-scale initiatives, and build partnerships with Web3 native companies. Focus on authenticity and value creation rather than jumping on trends without purpose.",
-          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop"
-        }
-      ],
-      conclusion: "Web3 marketing is still in its early stages, but forward-thinking brands are already experimenting and learning. The key is to start small, focus on providing genuine value to communities, and stay authentic to your brand values while exploring these new technologies.",
-      callToAction: "Curious about how Web3 could impact your marketing strategy? Contact ADMark to explore opportunities and develop a forward-thinking approach to the future of digital marketing."
-    }
-  },
-  {
     id: 4,
     slug: "social-media-trends-2024",
     title: "Social Media Marketing Trends to Watch in 2024",
