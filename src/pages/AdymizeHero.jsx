@@ -100,9 +100,9 @@ const AdymizeHero = () => {
           <div ref={heroRef} className="space-y-16">
             {/* Main Headline */}
             <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight text-white drop-shadow-lg">
-                <span className="block mb-2">Tech solutions for</span>
-                <span className="block font-medium bg-gradient-to-r py-4 from-white to-gray-200 bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight text-white drop-shadow-lg" style={{ fontFamily: "'Inter', 'Roboto', sans-serif" }}>
+                <span className="block mb-2" style={{ fontFamily: "'Roboto', sans-serif" }}>Tech solutions for</span>
+                <span className="block font-medium bg-gradient-to-r py-4 from-white to-gray-200 bg-clip-text text-transparent" style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}>
                   modern businesses.
                 </span>
               </h1>
@@ -111,10 +111,10 @@ const AdymizeHero = () => {
             {/* Statistics */}
             <div
               ref={statsRef}
-              className="rounded-2xl p-6 md:p-12 max-w-4xl mx-auto pointer-events-auto"
+              className="rounded-2xl max-w-4xl mx-auto pointer-events-auto"
              
             >
-              <div className="rounded-xl relative py-4 md:py-6 bg-gradient-to-b from-white via-gray-50 to-white">
+              <div className="rounded-xl relative py-4 md:py-6 bg-gradient-to-b from-white via-gray-50 to-white" style={{ fontFamily: "'Roboto', sans-serif" }}>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto px-4 md:px-6">
     
     {/* Years of Excellence */}
