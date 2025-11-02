@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^12.23.16",
     "gsap": "^3.13.0",

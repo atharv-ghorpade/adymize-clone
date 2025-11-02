@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <nav className="flex flex-wrap justify-center gap-6 text-sm">
-            {['home', 'about', 'services', 'contact'].map((link) => (
+            {['home', 'services', 'contact'].map((link) => (
               <button
                 key={link}
                 onClick={() => smoothScrollTo(link)}
